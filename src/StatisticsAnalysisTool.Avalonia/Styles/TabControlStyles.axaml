@@ -1,0 +1,79 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Tab control style -->
+    <Style Selector="TabControl.tabList">
+        <Setter Property="TabStripPlacement" Value="Left" />
+        <Setter Property="Margin" Value="0,90,0,40" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <Border Grid.Column="1" Margin="0">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                </ScrollViewer>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Tabs style -->
+        <Style Selector="^ > TabItem">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="5,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.5}"/>
+
+            <Style Selector="^:selected">
+                <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+            </Style>
+
+            <Style Selector="^:pointerover /template/ Border#PART_LayoutRoot">
+                <Setter Property="TextElement.Foreground" Value="{StaticResource SolidColorBrush.Text.4}" />
+            </Style>
+
+            <Style Selector="^:selected:pointerover /template/ Border#PART_LayoutRoot">
+                <Setter Property="TextElement.Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+            </Style>
+
+            <!-- Donations tab style -->
+            <Style Selector="^.Donations">
+                <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Yellow.2}" />
+
+                <Style Selector="^:selected">
+                    <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Yellow.1}" />
+                </Style>
+
+                <Style Selector="^:pointerover /template/ Border#PART_LayoutRoot">
+                    <Setter Property="TextElement.Foreground" Value="{StaticResource SolidColorBrush.Accent.Yellow.4}" />
+                </Style>
+
+                <Style Selector="^:selected:pointerover /template/ Border#PART_LayoutRoot">
+                    <Setter Property="TextElement.Foreground" Value="{StaticResource SolidColorBrush.Accent.Yellow.1}" />
+                </Style>
+            </Style>
+
+            <!-- Thanks tab style -->
+            <Style Selector="^.Thanks">
+                <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.7}" />
+
+                <Style Selector="^:selected">
+                    <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.1}" />
+                </Style>
+
+                <Style Selector="^:pointerover /template/ Border#PART_LayoutRoot">
+                    <Setter Property="TextElement.Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.8}" />
+                </Style>
+
+                <Style Selector="^:selected:pointerover /template/ Border#PART_LayoutRoot">
+                    <Setter Property="TextElement.Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.1}" />
+                </Style>
+            </Style>
+        </Style>
+    </Style>
+
+    <!-- Tab item grid style -->
+    <Style Selector="Grid.tabItemGrid">
+        <Setter Property="Margin" Value="0" />
+    </Style>
+</Styles>

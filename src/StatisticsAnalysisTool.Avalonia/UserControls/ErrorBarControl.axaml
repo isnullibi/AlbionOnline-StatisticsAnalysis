@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:fa="https://github.com/projektanker/icons.avalonia"
+             xmlns:vm="clr-namespace:StatisticsAnalysisTool.Avalonia.ViewModels"
+             xmlns:userControl="clr-namespace:StatisticsAnalysisTool.Avalonia.UserControls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="50"
+             x:Class="StatisticsAnalysisTool.Avalonia.UserControls.ErrorBarControl">
+
+    <Grid Classes="error" ZIndex="3">
+        <Button Classes="error" Click="BtnErrorBar_Click">
+            <fa:Icon Value="fa-solid fa-xmark" FontSize="26" />
+        </Button>
+        <Label x:Name="errorLabel" Classes="error"
+               Content="{CompiledBinding $parent[userControl:ErrorBarControl].ErrorText, FallbackValue=ERROR}"/>
+        <Border BorderThickness="1,0,0,0" BorderBrush="{StaticResource SolidColorBrush.Accent.Red.1}" />
+        <Border BorderThickness="0,1,0,0" BorderBrush="{StaticResource SolidColorBrush.Accent.Red.1}" />
+        <Border BorderThickness="0,0,1,0" BorderBrush="{StaticResource SolidColorBrush.Accent.Red.5}" />
+        <Border BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidColorBrush.Accent.Red.5}" />
+    </Grid>
+</UserControl>

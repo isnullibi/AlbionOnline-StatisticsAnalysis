@@ -1,0 +1,39 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="Grid.error">
+        <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Red.2}" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Height" Value="35" />
+    </Style>
+
+    <Style Selector="Label.error">
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        <Setter Property="Margin" Value="10,0,40,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="Button.error">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.5}" />
+        <Setter Property="Margin" Value="0,0,7,0" />
+        <Setter Property="MinHeight" Value="28" />
+        <Setter Property="Height" Value="34" />
+        <Setter Property="MinWidth" Value="28" />
+        <Setter Property="Width" Value="34" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.4}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.4}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+    </Style>
+</Styles>

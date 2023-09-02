@@ -1,0 +1,221 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="https://github.com/projektanker/icons.avalonia"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    
+    <Design.PreviewWith>
+        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Classes="windowControl" Content="Button" />
+        </StackPanel>
+    </Design.PreviewWith>
+    
+    <Style Selector="Window">
+        <!-- Disables the system default window control -->
+        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+        <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="40" />
+
+        <Setter Property="BorderThickness" Value="1,1,1,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource SolidColorBrush.Background.1}" />
+        <Setter Property="Background" Value="{StaticResource SolidColorBrush.Background.2}" />
+        <Setter Property="SystemDecorations" Value="None" />
+        <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style Selector="Image.toolIcon">
+        <Setter Property="Source" Value="/Assets/sat-icon.png" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="5,4,0,0"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="35"/>
+    </Style>
+
+    <Style Selector="Label">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="MinWidth" Value="20" />
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+
+        <Style Selector="^.blackMarket">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.City.Caerleon}" />
+        </Style>
+
+        <Style Selector="^.defaultCity">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="CornerRadius" Value="1" />
+        <Setter Property="MinHeight" Value="18" />
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        <Setter Property="Background" Value="{StaticResource Color.Accent.Blue.5}" />
+        
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource Color.Accent.Blue.3}" />
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+            <Setter Property="Background" Value="{StaticResource Color.Accent.Blue.2}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource Color.Text.4}" />
+            <Setter Property="Background" Value="{StaticResource Color.Text.6}" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.4}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        
+        <Style Selector="^.windowControl">
+            <!--<Setter Property="IsHitTestVisible" Value="True" />-->
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}"/>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="MinWidth" Value="32" />
+            <Setter Property="Width" Value="32" />
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style Selector="^.close /template/ ContentPresenter">
+            <Setter Property="Content">
+                <Template>
+                    <fa:Icon Value="fa-solid fa-xmark" />
+                </Template>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.minimize /template/ ContentPresenter">
+            <Setter Property="Content">
+                <Template>
+                    <fa:Icon Value="fa-regular fa-window-minimize" FontSize="14" />
+                </Template>
+            </Setter>
+        </Style>
+    </Style>
+    
+    <!--<Style Selector=":is(Control)">
+        <Setter Property="FocusAdorner">
+            <FocusAdornerTemplate>
+                <Border>
+                    <Rectangle Margin="2" StrokeThickness="1" Stroke="{StaticResource SolidColorBrush.Text.6}"
+                               StrokeDashArray="1,2" />
+                </Border>
+            </FocusAdornerTemplate>
+        </Setter>
+    </Style>-->
+
+    <Style Selector="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        <Setter Property="Background" Value="{StaticResource SolidColorBrush.Background.7}" />
+        <Setter Property="BorderBrush" Value="{StaticResource SolidColorBrush.Text.5}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="TabControl">
+        <Setter Property="Background" Value="{StaticResource SolidColorBrush.Background.1}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SolidColorBrush.Background.3}"/>
+        <Setter Property="BorderThickness" Value="1,0,1,0"/>
+    </Style>
+
+    <!--<Style Selector="TabItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="{StaticResource SolidColorBrush.Background.3}"
+                        CornerRadius="0" Margin="2,0,0,0">
+                    <ContentPresenter x:Name="ContentSite"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Content="{TemplateBinding Header}"
+                                      Margin="15,2" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>-->
+
+    <Style Selector="Border.containerBorder">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource SolidColorBrush.Background.4}" />
+    </Style>
+
+    <Style Selector="ListBox">
+        <Setter Property="SelectionMode" Value="Multiple" />
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        <Setter Property="Background" Value="{StaticResource SolidColorBrush.Background.1}" />
+        <Setter Property="BorderBrush" Value="{StaticResource SolidColorBrush.Background.3}" />
+    </Style>
+
+    <Style Selector="ScrollBar">
+        <Setter Property="Width" Value="15" />
+        <Setter Property="AllowAutoHide" Value="False" />
+        
+        <Style Selector="^:vertical">
+            <Style Selector="^ Rectangle">
+                <Setter Property="Fill" Value="{StaticResource SolidColorBrush.Background.3}" />
+            </Style>
+            <Style Selector="^ Thumb">
+                <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+                <Style Selector="^:pointerover /template/ Border">
+                    <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+                </Style>
+                <Style Selector="^:pressed /template/ Border">
+                    <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+                </Style>
+            </Style>
+            <Style Selector="^ RepeatButton">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="Height" Value="0" />
+            </Style>
+        </Style>
+        
+        <Style Selector="^:horizontal">
+            <Style Selector="^ Rectangle">
+                <Setter Property="Fill" Value="{StaticResource SolidColorBrush.Background.3}" />
+            </Style>
+            <Style Selector="^ Thumb">
+                <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+                <Style Selector="^:pointerover /template/ Border">
+                    <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+                </Style>
+                <Style Selector="^:pressed /template/ Border">
+                    <Setter Property="Background" Value="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+                </Style>
+            </Style>
+            <Style Selector="^ RepeatButton">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="Width" Value="0" />
+            </Style>
+        </Style>
+    </Style>
+
+    <Style Selector="TextBlock.textTitle1">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Blue.3}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="0,5,0,0"/>
+    </Style>
+</Styles>

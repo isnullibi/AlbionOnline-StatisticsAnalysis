@@ -1,0 +1,598 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <StartupObject>StatisticsAnalysisTool.Avalonia.Program</StartupObject>
+    <ApplicationIcon>sat-icon.ico</ApplicationIcon>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Models\" />
+    <AvaloniaResource Include="Assets\**" />
+	<AvaloniaResource Include="Resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\ava_chest.png" />
+    <None Remove="Assets\bag.png" />
+    <None Remove="Assets\bg01.png" />
+    <None Remove="Assets\blue_glow.png" />
+    <None Remove="Assets\book.png" />
+    <None Remove="Assets\book_oblique.png" />
+    <None Remove="Assets\crafting_description_image001.png" />
+    <None Remove="Assets\crafting_description_image002.png" />
+    <None Remove="Assets\dungeon.png" />
+    <None Remove="Assets\empty_icon.png" />
+    <None Remove="Assets\fishing_lure_box.png" />
+    <None Remove="Assets\gem_level0.png" />
+    <None Remove="Assets\gem_level1.png" />
+    <None Remove="Assets\gem_level2.png" />
+    <None Remove="Assets\gem_level3.png" />
+    <None Remove="Assets\gem_level4.png" />
+    <None Remove="Assets\gold_glow.png" />
+    <None Remove="Assets\green_glow.png" />
+    <None Remove="Assets\heart.png" />
+    <None Remove="Assets\openworld_chests.png" />
+    <None Remove="Assets\outpost_chest.png" />
+    <None Remove="Assets\paypal-QR-Code.png" />
+    <None Remove="Assets\pickaxe.png" />
+    <None Remove="Assets\pickaxe_bonus.png" />
+    <None Remove="Assets\pickaxe_box.png" />
+    <None Remove="Assets\pickaxe_premium.png" />
+    <None Remove="Assets\pickaxe_repeat.png" />
+    <None Remove="Assets\preparation_folder.png" />
+    <None Remove="Assets\purple_glow.png" />
+    <None Remove="Assets\repair_cross.png" />
+    <None Remove="Assets\sat-icon.png" />
+    <None Remove="Assets\static_chest.png" />
+    <None Remove="Languages\de-DE.xml" />
+    <None Remove="Languages\en-US.xml" />
+    <None Remove="Languages\es-ES.xml" />
+    <None Remove="Languages\fr-FR.xml" />
+    <None Remove="Languages\ko-KR.xml" />
+    <None Remove="Languages\pl-PL.xml" />
+    <None Remove="Languages\pt-BR.xml" />
+    <None Remove="Languages\ru-RU.xml" />
+    <None Remove="Languages\tr-TR.xml" />
+    <None Remove="Languages\zh-CN.xml" />
+    <None Remove="Languages\zh-TW.xml" />
+    <None Remove="Resources\alert_window_background.jpg" />
+    <None Remove="Resources\book.png" />
+    <None Remove="Resources\boss.png" />
+    <None Remove="Resources\chest_close_legendary.png" />
+    <None Remove="Resources\chest_close_rare.png" />
+    <None Remove="Resources\chest_close_standard.png" />
+    <None Remove="Resources\chest_close_uncommon.png" />
+    <None Remove="Resources\chest_open_legendary.png" />
+    <None Remove="Resources\chest_open_rare.png" />
+    <None Remove="Resources\chest_open_standard.png" />
+    <None Remove="Resources\chest_open_uncommon.png" />
+    <None Remove="Resources\corrupted_banner.png" />
+    <None Remove="Resources\crown.png" />
+    <None Remove="Resources\DonationIcon\ALLIGATOR1.png" />
+    <None Remove="Resources\DonationIcon\ANCIENTMAMMOTH1.png" />
+    <None Remove="Resources\DonationIcon\BEAR.png" />
+    <None Remove="Resources\DonationIcon\BOAR.png" />
+    <None Remove="Resources\DonationIcon\CRITTERCOUGAR1.png" />
+    <None Remove="Resources\DonationIcon\CRITTERMISTCOUGAR1.png" />
+    <None Remove="Resources\DonationIcon\CRITTERMISTCOUGAR2.png" />
+    <None Remove="Resources\DonationIcon\CRITTERMISTCOUGAR3.png" />
+    <None Remove="Resources\DonationIcon\CRITTERMISTCOUGAR4.png" />
+    <None Remove="Resources\DonationIcon\CRITTERMISTCOUGAR5.png" />
+    <None Remove="Resources\DonationIcon\DESERTWOLF1.png" />
+    <None Remove="Resources\DonationIcon\DIREBEAR.png" />
+    <None Remove="Resources\DonationIcon\DIREBEAR2.png" />
+    <None Remove="Resources\DonationIcon\DIREBOAR.png" />
+    <None Remove="Resources\DonationIcon\DIREBOAR2.png" />
+    <None Remove="Resources\DonationIcon\DIREWOLF.png" />
+    <None Remove="Resources\DonationIcon\FOX.png" />
+    <None Remove="Resources\DonationIcon\GIANTSNAKE1.png" />
+    <None Remove="Resources\DonationIcon\GIANTSTAG1.png" />
+    <None Remove="Resources\DonationIcon\GIANTSTAGMOOSE1.png" />
+    <None Remove="Resources\DonationIcon\GIANTTOAD1.png" />
+    <None Remove="Resources\DonationIcon\HILLMARMOT1.png" />
+    <None Remove="Resources\DonationIcon\IMPALA1.png" />
+    <None Remove="Resources\DonationIcon\MAMMOTH1.png" />
+    <None Remove="Resources\DonationIcon\MARABOU1.png" />
+    <None Remove="Resources\DonationIcon\MARMOT1.png" />
+    <None Remove="Resources\DonationIcon\MOABIRD1.png" />
+    <None Remove="Resources\DonationIcon\MONITORLIZARD1.png" />
+    <None Remove="Resources\DonationIcon\RABBIT.png" />
+    <None Remove="Resources\DonationIcon\RHINO1.png" />
+    <None Remove="Resources\DonationIcon\RHINO2.png" />
+    <None Remove="Resources\DonationIcon\SNAKE1.png" />
+    <None Remove="Resources\DonationIcon\SNOWRABBIT1.png" />
+    <None Remove="Resources\DonationIcon\TOAD1.png" />
+    <None Remove="Resources\DonationIcon\WOLF.png" />
+    <None Remove="Resources\dungeon.png" />
+    <None Remove="Resources\factioncoin_bridgewatch.png" />
+    <None Remove="Resources\factioncoin_caerleon.png" />
+    <None Remove="Resources\factioncoin_fortsterling.png" />
+    <None Remove="Resources\factioncoin_lymhurst.png" />
+    <None Remove="Resources\factioncoin_martlock.png" />
+    <None Remove="Resources\factioncoin_thetford.png" />
+    <None Remove="Resources\factionflag_bridgewatch.png" />
+    <None Remove="Resources\factionflag_caerleon.png" />
+    <None Remove="Resources\factionflag_fortsterling.png" />
+    <None Remove="Resources\factionflag_lymhurst.png" />
+    <None Remove="Resources\factionflag_martlock.png" />
+    <None Remove="Resources\factionflag_thetford.png" />
+    <None Remove="Resources\faction_avalon_banner.png" />
+    <None Remove="Resources\faction_heretic_banner.png" />
+    <None Remove="Resources\faction_keeper_banner.png" />
+    <None Remove="Resources\faction_morgana_banner.png" />
+    <None Remove="Resources\faction_undead_banner.png" />
+    <None Remove="Resources\faction_unknown_banner.png" />
+    <None Remove="Resources\fame.png" />
+    <None Remove="Resources\favor.png" />
+    <None Remove="Resources\gold.png" />
+    <None Remove="Resources\goldchest.png" />
+    <None Remove="Resources\hellgate_banner.png" />
+    <None Remove="Resources\icon_daily_season_points.png" />
+    <None Remove="Resources\might.png" />
+    <None Remove="Resources\respec.png" />
+    <None Remove="Resources\satchel.png" />
+    <None Remove="Resources\shields.png" />
+    <None Remove="Resources\shrine_combat_buff.png" />
+    <None Remove="Resources\shrine_fame.png" />
+    <None Remove="Resources\shrine_silver.png" />
+    <None Remove="Resources\silver.png" />
+    <None Remove="Resources\skull.png" />
+    <None Remove="Resources\Trash.png" />
+    <None Remove="Resources\zone.png" />
+    <None Remove="sat-icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Languages\de-DE.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\en-US.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\es-ES.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\fr-FR.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\ko-KR.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\pl-PL.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\pt-BR.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\ru-RU.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\tr-TR.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\zh-CN.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\zh-TW.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sat-icon.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.2" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" Version="8.2.0" />
+    <PackageReference Include="Serilog" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Update="Assets\ava_chest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\bag.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\bg01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\blue_glow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\book.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\book_oblique.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\crafting_description_image001.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\crafting_description_image002.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\dungeon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\empty_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\fishing_lure_box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\gem_level0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\gem_level1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\gem_level2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\gem_level3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\gem_level4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\gold_glow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\green_glow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\heart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\group_dungeon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\minimapmarker_fiber.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\minimapmarker_hide.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\minimapmarker_ore.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\minimapmarker_stone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\minimapmarker_wood.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\raid_dungeon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\road_chest_group.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\road_chest_raid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\road_chest_solo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\MiniMapMarker\solo_dungeon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\openworld_chests.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\outpost_chest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\paypal-QR-Code.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\pickaxe.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\pickaxe_bonus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\pickaxe_box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\pickaxe_premium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\pickaxe_repeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\preparation_folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\purple_glow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\repair_cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\sat-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\static_chest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\alert_window_background.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\book.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\boss.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_close_legendary.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_close_rare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_close_standard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_close_uncommon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_open_legendary.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_open_rare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_open_standard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\chest_open_uncommon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\corrupted_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\crown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\ALLIGATOR1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\ANCIENTMAMMOTH1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\BEAR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\BOAR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\CRITTERCOUGAR1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\CRITTERMISTCOUGAR1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\CRITTERMISTCOUGAR2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\CRITTERMISTCOUGAR3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\CRITTERMISTCOUGAR4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\CRITTERMISTCOUGAR5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\DESERTWOLF1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\DIREBEAR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\DIREBEAR2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\DIREBOAR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\DIREBOAR2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\DIREWOLF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\FOX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\GIANTSNAKE1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\GIANTSTAG1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\GIANTSTAGMOOSE1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\GIANTTOAD1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\HILLMARMOT1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\IMPALA1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\MAMMOTH1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\MARABOU1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\MARMOT1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\MOABIRD1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\MONITORLIZARD1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\RABBIT.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\RHINO1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\RHINO2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\SNAKE1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\SNOWRABBIT1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\TOAD1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\DonationIcon\WOLF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\dungeon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factioncoin_bridgewatch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factioncoin_caerleon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factioncoin_fortsterling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factioncoin_lymhurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factioncoin_martlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factioncoin_thetford.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factionflag_bridgewatch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factionflag_caerleon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factionflag_fortsterling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factionflag_lymhurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factionflag_martlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\factionflag_thetford.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\faction_avalon_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\faction_heretic_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\faction_keeper_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\faction_morgana_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\faction_undead_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\faction_unknown_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\fame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\favor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\gold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\goldchest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\hellgate_banner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\icon_daily_season_points.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\might.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\respec.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\satchel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\shields.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\shrine_combat_buff.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\shrine_fame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\shrine_silver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\silver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\skull.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\Trash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Resources\zone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
+  </ItemGroup>
+</Project>

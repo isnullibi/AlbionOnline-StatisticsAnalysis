@@ -13,7 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticsAnalysisTool.Network", "StatisticsAnalysisTool.Network\StatisticsAnalysisTool.Network.csproj", "{3EFADBA6-CBC5-479F-900B-369353AA04BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticAnalysisTool.Extractor", "StatisticAnalysisTool.Extractor\StatisticAnalysisTool.Extractor.csproj", "{BB6567DA-B6A1-468F-8D16-B93272C7E061}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticAnalysisTool.Extractor", "StatisticAnalysisTool.Extractor\StatisticAnalysisTool.Extractor.csproj", "{BB6567DA-B6A1-468F-8D16-B93272C7E061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticsAnalysisTool.Avalonia", "StatisticsAnalysisTool.Avalonia\StatisticsAnalysisTool.Avalonia.csproj", "{C013A52B-2346-4D6D-B82B-8782E8A70042}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EFADBA6-CBC5-479F-900B-369353AA04BB} = {3EFADBA6-CBC5-479F-900B-369353AA04BB}
+		{BB6567DA-B6A1-468F-8D16-B93272C7E061} = {BB6567DA-B6A1-468F-8D16-B93272C7E061}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +79,18 @@ Global
 		{BB6567DA-B6A1-468F-8D16-B93272C7E061}.Release|x64.Build.0 = Release|Any CPU
 		{BB6567DA-B6A1-468F-8D16-B93272C7E061}.Release|x86.ActiveCfg = Release|Any CPU
 		{BB6567DA-B6A1-468F-8D16-B93272C7E061}.Release|x86.Build.0 = Release|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Debug|x64.Build.0 = Debug|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Debug|x86.Build.0 = Debug|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Release|x64.ActiveCfg = Release|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Release|x64.Build.0 = Release|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Release|x86.ActiveCfg = Release|Any CPU
+		{C013A52B-2346-4D6D-B82B-8782E8A70042}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

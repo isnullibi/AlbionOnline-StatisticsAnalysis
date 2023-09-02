@@ -1,0 +1,28 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="StatisticsAnalysisTool.Avalonia.App"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             x:CompileBindings="True"
+             RequestedThemeVariant="Light">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Styles/Colors.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
+        <!--<x:Boolean x:Key="UseSystemFocusVisuals">False</x:Boolean>-->
+        
+    </Application.Resources>
+  
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="/Styles/MainStyles.axaml" />
+        <StyleInclude Source="/Styles/ErrorBarStyles.axaml" />
+        <StyleInclude Source="/Styles/MainWindowStyles.axaml" />
+        <StyleInclude Source="/Styles/TabControlStyles.axaml" />
+    </Application.Styles>
+
+</Application>

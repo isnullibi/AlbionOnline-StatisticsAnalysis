@@ -1,0 +1,271 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:StatisticsAnalysisTool.Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="https://github.com/projektanker/icons.avalonia"
+        xmlns:viewModels="clr-namespace:StatisticsAnalysisTool.Avalonia.ViewModels"
+        xmlns:userControls="clr-namespace:StatisticsAnalysisTool.Avalonia.UserControls"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="650"
+        x:Class="StatisticsAnalysisTool.Avalonia.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        DataContext="vm:MainWindowViewModel"
+        Icon="/Assets/sat-icon.png"
+        Title="AlbionOnline - StatisticsAnalysisTool AvaloniaUI Edition"
+        Closing="MainWindow_OnClosing"
+        Classes="mainWindow">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid Classes="mainGrid">
+        <Grid Classes="backgroundImage"/>
+
+        <Grid ZIndex="-1" Height="90" VerticalAlignment="Top" DoubleTapped="Grid_DoubleTapped">
+            <Grid Background="{StaticResource SolidColorBrush.Background.5}" Opacity="0.5"
+                  PointerPressed="Hotbar_Holding"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Classes="windowControl minimize" Name="MinimizedButton"
+                        Click="MinimizeButton_Click" />
+                <Button Classes="windowControl" VerticalContentAlignment="Bottom"
+                        Click="MaximizeButton_Click">
+                    <Panel>
+                        <fa:Icon Name="MaximizeButton" Value="fa-regular fa-window-maximize"
+                                 FontSize="14" IsVisible="True"/>
+                        <fa:Icon Name="RestoreButton" Value="fa-regular fa-window-restore"
+                                 FontSize="14" IsVisible="False"/>
+                    </Panel>
+                </Button>
+                <Button Classes="windowControl close" Click="CloseButton_Click" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" Height="38" VerticalAlignment="Top" Margin="35,0,90,0">
+                        <Label Classes="title" VerticalAlignment="Center"
+                               Content="AVALONIA STATISTICS ANALYSIS TOOL"/>
+                        <Grid IsVisible="True"
+                              Height="20" Width="20" VerticalAlignment="Center" ToolTip.Tip="UNSUPPORTED_OS">
+                            <fa:Icon Value="fa-solid fa-triangle-exclamation" FontSize="17"
+                                     Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" />
+                        </Grid>
+                        <Label Classes="title" VerticalAlignment="Center"
+                               Content="- DEBUG -" Foreground="{StaticResource SolidColorBrush.Accent.Red.3}"
+                               IsVisible="True"/>
+                        <Label Classes="trackingContent" VerticalAlignment="Center"
+                               Content="(SERVER_TYPE)" Foreground="{StaticResource SolidColorBrush.Accent.Blue.4}"
+                               />
+                        <Label Content="TRACKING_IS_NOT_ACTIVE" VerticalAlignment="Center"/>
+                        <!-- Label style need to be impl -->
+                        <Grid Classes="loadingIconGrid" IsVisible="True" VerticalAlignment="Center">
+                            <fa:Icon Classes="loadingIcon" />
+                        </Grid>
+                    </StackPanel>
+                    <Image Classes="toolIcon"/>
+                </Grid>
+
+                <Grid>
+                    <Grid HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal" IsVisible="True">
+                                <Label Classes="trackingTitle" Content="USERNAME"/>
+                                <Label Classes="trackingContent" Content="USERNAME"/>
+                                <Grid IsVisible="True"
+                                      Height="20" Width="20" Margin="5,4,0,3" VerticalAlignment="Center"
+                                      ToolTip.Tip="THIS_CHARACTER_IS_NOT_TRACKED">
+                                    <fa:Icon Value="fa-solid fa-triangle-exclamation"
+                                             Foreground="{StaticResource SolidColorBrush.Accent.Yellow.1}"/>
+                                </Grid>
+                                <Label Content=" | " VerticalContentAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" IsVisible="True">
+                                <Label Classes="trackingTitle" Content="GUILD" />
+                                <Label Classes="trackingContent" Content="GUILD_NAME" />
+                                <Label Content=" | " VerticalContentAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" IsVisible="True">
+                                <Label Classes="trackingTitle" Content="ALLIANCE" />
+                                <Label Classes="trackingContent" Content="ALLIANCE_NAME" />
+                                <Label Content=" | " VerticalContentAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" IsVisible="True">
+                                <Label Classes="trackingTitle" Content="CURRENT_MAP" />
+                                <!-- CONTENT CONTROL -->
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Height="18">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="trackingContent" Content="00:00:00" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+
+            <Grid Height="26" VerticalAlignment="Top" Margin="10,62,0,0" HorizontalAlignment="Left" Width="500">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="0" Margin="1,3,0,1"/>
+                    <Grid Height="20" Width="20" Margin="0,0,5,0" VerticalAlignment="Center" PointerPressed="">
+                        <fa:Icon Value="fa-solid fa-users"
+                                 FontSize="17" Foreground="{StaticResource SolidColorBrush.Text.1}" />
+                    </Grid>
+                    <ItemsControl Classes="" ItemsSource="" />
+                </StackPanel>
+            </Grid>
+            
+            <ProgressBar Margin="0,89,0,0" Height="1" Minimum="0" Maximum="100" Value="0"/>
+
+            <Grid PointerPressed="">
+                <fa:Icon Value="fa-solid fa-angles-down" Foreground="{StaticResource SolidColorBrush.Text.1}"
+                         FontSize="13" Margin="0,0,0,2"
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+            </Grid>
+        </Grid>
+        
+        <!-- Stats drop down -->
+        <Grid ZIndex="3" Height="90" MaxWidth="500" Margin="0,90,5,0" HorizontalAlignment="Center"
+              VerticalAlignment="Top" Background="{StaticResource SolidColorBrush.Background.3}"
+              IsVisible="False">
+            <Border BorderBrush="{StaticResource SolidColorBrush.Text.7}" BorderThickness="1">
+                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                    <!-- Fame -->
+                    <StackPanel Orientation="Vertical" Margin="10,0">
+                        <Image Source="/Resources/fame.png" Width="22" Height="22" ToolTip.Tip="FAME"/>
+                        <TextBlock Text="0"
+                                   FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="0 /h"
+                                   Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <!-- Silver -->
+                    <StackPanel Orientation="Vertical" Margin="10,0">
+                        <Image Source="/Resources/silver.png" Width="22" Height="22" ToolTip.Tip="FAME"/>
+                        <TextBlock Text="0"
+                                   FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="0 /h"
+                                   Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+
+                    </StackPanel>
+                    <!-- Respec -->
+                    <StackPanel Orientation="Vertical" Margin="10,0">
+                        <Image Source="/Resources/respec.png" Width="22" Height="22" ToolTip.Tip="FAME"/>
+                        <TextBlock Text="0"
+                                   FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="0 /h"
+                                   Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+
+                    </StackPanel>
+                    <!-- Might -->
+                    <StackPanel Orientation="Vertical" Margin="10,0">
+                        <Image Source="/Resources/might.png" Width="22" Height="22" ToolTip.Tip="FAME"/>
+                        <TextBlock Text="0"
+                                   FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="0 /h"
+                                   Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+
+                    </StackPanel>
+                    <!-- Favor -->
+                    <StackPanel Orientation="Vertical" Margin="10,0">
+                        <Image Source="/Resources/favor.png" Width="22" Height="22" ToolTip.Tip="FAME"/>
+                        <TextBlock Text="0"
+                                   FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="0 /h"
+                                   Foreground="{StaticResource SolidColorBrush.Text.1}"
+                                   HorizontalAlignment="Center" />
+
+                    </StackPanel>
+                    <!-- ItemControl -->
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <TabControl Classes="tabList">
+            <TabItem Header="DASHBOARD">
+                <Grid Classes="tabItemGrid">
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="ITEM_SEARCH">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="LOGGING">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="DUNGEONS">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="DAMAGE_METER">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="TRADE_MONITORING">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="GATHERING">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="PARTY_BUILDER">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="STORAGE_HISTORY">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="MAP_HISTORY">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="PLAYER_INFO">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Classes="Donations" Header="DONATIONS">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Classes="Thanks" Header="THANKS">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="SETTINGS">
+                <Grid Classes="tabItemGrid">
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <userControls:FooterControl VerticalAlignment="Bottom" Height="40"/>
+        <userControls:ErrorBarControl Name="ErrorBar" VerticalAlignment="Bottom" IsVisible="False"
+                                      ErrorText="{Binding ErrorText}" />
+        <!--<Button Click="TestButton" />-->
+    </Grid>
+</Window>

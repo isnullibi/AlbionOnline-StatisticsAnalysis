@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fa="https://github.com/projektanker/icons.avalonia"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Height="450" Width="650" MinHeight="250" MinWidth="400"
+        x:Class="StatisticsAnalysisTool.Avalonia.Views.DamageMeterWindow"
+        WindowStartupLocation="CenterScreen"
+        BorderThickness="1" BorderBrush="{StaticResource SolidColorBrush.Background.3}"
+        Title="{ReflectionBinding , FallbackValue=TITLE}">
+
+    <Grid Background="{StaticResource SolidColorBrush.Background.1}">
+        <Grid ZIndex="1" Height="33" VerticalAlignment="Top" Background="{StaticResource SolidColorBrush.Background.2}"
+              DoubleTapped="Grid_DoubleTapped" PointerPressed="Hotbar_Holding">
+            <Label Content="{ReflectionBinding , FallbackValue=TITLE}" Margin="0,0,91,0" VerticalAlignment="Top" Height="33"
+                   FontSize="16" FontWeight="Bold"
+                   VerticalContentAlignment="Center" Foreground="{StaticResource SolidColorBrush.Text.1}" />
+            <Separator Margin="5,30,5,0" VerticalAlignment="Top" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Classes="windowControl minimize" Name="MinimizedButton"
+                        Click="MinimizeButton_Click" />
+                <Button Classes="windowControl" VerticalContentAlignment="Bottom"
+                        Click="MaximizedButton_Click">
+                    <Panel>
+                        <fa:Icon Name="MaximizeButton" Value="fa-regular fa-window-maximize"
+                                 FontSize="14" IsVisible="True"/>
+                        <fa:Icon Name="RestoreButton" Value="fa-regular fa-window-restore"
+                                 FontSize="14" IsVisible="False"/>
+                    </Panel>
+                </Button>
+                <Button Classes="windowControl close" Click="CloseButton_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="0,33,-1,0">
+            <ScrollViewer>
+                <ItemsControl />
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

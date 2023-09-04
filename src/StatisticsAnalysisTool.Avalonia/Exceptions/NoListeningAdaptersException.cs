@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StatisticsAnalysisTool.Exceptions;
+namespace StatisticsAnalysisTool.Avalonia.Exceptions;
 
 public class NoListeningAdaptersException : Exception
 {

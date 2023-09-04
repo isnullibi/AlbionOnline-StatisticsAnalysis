@@ -1,4 +1,4 @@
-﻿namespace StatisticsAnalysisTool.Gathering;
+﻿namespace StatisticsAnalysisTool.Avalonia.Gathering;
 
 public enum GatheringStatsTimeType
 {

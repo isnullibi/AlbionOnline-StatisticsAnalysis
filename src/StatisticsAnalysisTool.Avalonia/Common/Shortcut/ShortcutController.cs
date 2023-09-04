@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace StatisticsAnalysisTool.Common.Shortcut;
+namespace StatisticsAnalysisTool.Avalonia.Common.Shortcut;
 
 public static class ShortcutController
 {

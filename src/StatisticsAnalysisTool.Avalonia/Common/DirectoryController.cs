@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace StatisticsAnalysisTool.Common;
+namespace StatisticsAnalysisTool.Avalonia.Common;
 
 internal static class DirectoryController
 {

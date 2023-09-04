@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace StatisticsAnalysisTool.Common.Shortcut;
+namespace StatisticsAnalysisTool.Avalonia.Common.Shortcut;
 
 [ComImport]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace StatisticsAnalysisTool.Common.Comparer;
+namespace StatisticsAnalysisTool.Avalonia.Common.Comparer;
 
 public class DungeonTrackingNumberComparer : IComparer
 {

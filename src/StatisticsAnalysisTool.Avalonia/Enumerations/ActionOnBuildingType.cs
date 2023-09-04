@@ -1,4 +1,4 @@
-﻿namespace StatisticsAnalysisTool.Enumerations;
+﻿namespace StatisticsAnalysisTool.Avalonia.Enumerations;
 
 public enum ActionOnBuildingType
 {

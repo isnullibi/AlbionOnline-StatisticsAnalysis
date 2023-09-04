@@ -26,12 +26,12 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Right" />
 
-        <Style Selector="^:pointerover /template/ ContentPresenter">
+        <Style Selector="^.error:pointerover /template/ ContentPresenter">
             <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.4}" />
             <Setter Property="Background" Value="Transparent" />
         </Style>
 
-        <Style Selector="^:pressed /template/ ContentPresenter">
+        <Style Selector="^.error:pressed /template/ ContentPresenter">
             <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Red.4}" />
             <Setter Property="Background" Value="Transparent" />
         </Style>

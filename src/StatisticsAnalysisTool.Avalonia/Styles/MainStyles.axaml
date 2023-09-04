@@ -55,7 +55,7 @@
     </Style>
 
     <Style Selector="Button">
-        <Setter Property="CornerRadius" Value="1" />
+        <Setter Property="CornerRadius" Value="2" />
         <Setter Property="MinHeight" Value="18" />
         <Setter Property="MinWidth" Value="40" />
         <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
@@ -81,13 +81,9 @@
             <Setter Property="Background" Value="{StaticResource Color.Text.6}" />
         </Style>
 
-        <Style Selector="^:pointerover /template/ ContentPresenter">
-            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.4}" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
+        
         
         <Style Selector="^.windowControl">
-            <!--<Setter Property="IsHitTestVisible" Value="True" />-->
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}"/>
             <Setter Property="FontSize" Value="20" />
@@ -98,6 +94,16 @@
             <Setter Property="VerticalContentAlignment" Value="Top"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
+
+            <Style Selector="^:pointerover /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.4}" />
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+
+            <Style Selector="^:disabled /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{StaticResource Color.Text.7}" />
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
         </Style>
 
         <Style Selector="^.close /template/ ContentPresenter">
@@ -217,5 +223,101 @@
         <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Blue.3}"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="0,5,0,0"/>
+    </Style>
+
+    <Style Selector="ProgressBar">
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Blue.3}" />
+        <Style Selector="^.loading">
+            <Setter Property="Background" Value="{StaticResource SolidColorBrush.Background.1}" />
+
+            <Style Selector="^ Border#IndeterminateProgressBarIndicator">
+                <Setter Property="BorderThickness" Value="18" />
+            </Style>
+        </Style>
+    </Style>
+
+    <Style Selector="ComboBox">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Width" Value="200" />
+        <Setter Property="BorderBrush" Value="{StaticResource Color.Text.5}" />
+    </Style>
+
+    <Style Selector="ComboBoxItem">
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        <Setter Property="Padding" Value="11,0" />
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="1">
+                    <ContentPresenter Foreground="{TemplateBinding Foreground}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Padding="{TemplateBinding Padding}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{StaticResource Color.Background.1}" />
+        </Style>
+        
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.2}"/>
+        </Style>
+
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Background" Value="{StaticResource Color.Background.1}" />
+            </Style>
+            
+            <Style Selector="^:pointerover /template/ ContentPresenter">
+                <Setter Property="Background" Value="{StaticResource Color.Background.1}" />
+            </Style>
+        </Style>
+    </Style>
+
+    <Style Selector="TextBox">
+        <Setter Property="CornerRadius" Value="2" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{StaticResource Color.Text.1}" />
+
+            <Style Selector="^ /template/ Border#PART_BorderElement">
+                <Setter Property="BorderBrush" Value="{StaticResource Color.Accent.Blue.2}" />
+                <Setter Property="Background" Value="{TemplateBinding Background}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:focus">
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Border#PART_BorderElement">
+                    <Setter Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushFocused}" />
+                </Style>
+
+                <!-- White theme -->
+                <Setter Property="Foreground" Value="{DynamicResource TextControlForegroundPointerOver}" />
+
+                <Style Selector="^ /template/ Border#PART_BorderElement">
+                    <Setter Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
+                </Style>
+            </Style>
+
+            <!-- Black background in focused state-->
+            <!--<Setter Property="Foreground" Value="{StaticResource Color.Text.1}" />
+
+                <Style Selector="^ /template/ Border#PART_BorderElement">
+                    <Setter Property="Background" Value="{TemplateBinding Background}" />
+                </Style>-->
+        </Style>
+    </Style>
+
+    <Style Selector="CheckBox">
+        <Setter Property="Height" Value="32" />
     </Style>
 </Styles>

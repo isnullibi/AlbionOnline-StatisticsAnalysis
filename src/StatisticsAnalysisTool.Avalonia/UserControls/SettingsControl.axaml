@@ -1,0 +1,211 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:StatisticsAnalysisTool.Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1600"
+             x:Class="StatisticsAnalysisTool.Avalonia.UserControls.SettingsControl"
+             x:DataType="vm:SettingsWindowViewModel"
+             DataContext="vm:SettingsWindowViewModel"
+             Classes="settings" >
+
+    <UserControl.Styles>
+        <StyleInclude Source="/Styles/SettingsControlStyles.axaml" />
+    </UserControl.Styles>
+     
+    <Grid>
+        <Grid Margin="5,5,0,0" RowDefinitions="*, Auto">
+            <ScrollViewer Grid.Row="0">
+                <StackPanel Margin="0,0,20,0">
+                    <DockPanel Margin="0">
+                        <Label Content="GENERALLY" FontSize="14"
+                               Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="LANGUAGE (RESTART NEEDED)" />
+                        <ComboBox PlaceholderText="Select language...">
+                            <Label Content="Test 1" />
+                            <Label Content="Test 2" />
+                            <Label Content="Test 3" />
+                            <Label Content="Test 4" />
+                        </ComboBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label />
+                        <Button Height="44" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold"
+                                Content="CHECK_FOR_UPDATE" HorizontalContentAlignment="Center"
+                                Click="" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="SUGGEST_PRE_RELEASE_UPDATES" />
+                        <CheckBox VerticalContentAlignment="Center">
+                            <Label Content="ATTENTION__THESE__VERSION__ARE__STILL__BEING__TESTED"
+                                   Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" />
+                        </CheckBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="NAVIGATION__TAB__VISIBILITY" />
+                        <ComboBox HorizontalContentAlignment="Left">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Text 1" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Text 2" />
+                        </ComboBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="NOTIFICATIONS" />
+                        <ComboBox HorizontalContentAlignment="Left">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Text 1" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Text 2" />
+                        </ComboBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="CHARACTER_NAME_TO_TRACK" />
+                        <TextBox Text="NICKNAME" Height="28" TextWrapping="NoWrap" MaxLength="50" Margin="0,0,5,0" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="PLAYER_SELECTION_WITH_SAME_NAME_IN_DB" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="NICK" Height="28" MinWidth="100" TextWrapping="NoWrap"
+                                     Margin="0,0,5,0" MaxLength="2" />
+                            <Button Content="RESET" Height="30" MaxWidth="100" VerticalContentAlignment="Center"
+                                    Click="" />
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label />
+                        <Button Content="OPEN_TOOL_DIRECTORY" MinWidth="300" Height="26"
+                                HorizontalContentAlignment="Center" Click="" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label />
+                        <Button Content="CREATE__DESKTOP__SHORTCUT" MinWidth="300" Height="26"
+                                HorizontalContentAlignment="Center" Click="" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="ANOTHER_APP_TO_START_PATH" Height="40" />
+                        <Grid Background="{StaticResource SolidColorBrush.Background.4}" Margin="0,0,0,0">
+                            <Image Source="/Resources/fame.png" Width="35" Height="35" Margin="3"/>
+                        </Grid>
+                        <TextBox Text="PATH_TO_EXE" Height="40" TextWrapping="Wrap" Margin="5,0" />
+                    </DockPanel>
+                    
+                    <!-- Tracking -->
+                    <DockPanel Classes="title">
+                        <Label Content="TRACKING" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="SET__SERVER__MANUALLY" />
+                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select server...">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="West" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="East" />
+                        </ComboBox>
+                    </DockPanel>
+                    
+                    <!-- Item window -->
+                    <DockPanel Classes="title">
+                        <Label Content="ITEM__WINDOW" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="REFRESH__RATE" />
+                        <ComboBox HorizontalContentAlignment="Left">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Never" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Everyday" />
+                        </ComboBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="OPEN__ITEM__WINDOW__IN__NEW__WINDOW" />
+                        <CheckBox />
+                    </DockPanel>
+                    <!--<DockPanel>
+                        <Label Content="SHOW__INFO__WINDOW__ON__START" />
+                        <CheckBox />
+                    </DockPanel>-->
+                    
+                    <!-- Item search -->
+                    <DockPanel Classes="title">
+                        <Label Content="ITEM__SEARCH" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="ALERT__SOUND__USED" />
+                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select sound...">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Song1" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Song2" />
+                        </ComboBox>
+                    </DockPanel>
+
+                    <!-- Loot logger -->
+                    <DockPanel Classes="title">
+                        <Label Content="LOOT__LOGGER" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="IS__LOOT__LOGGER__SAVE__REMINDER__ACTIVE" />
+                        <CheckBox />
+                    </DockPanel>
+
+                    <!-- Backup -->
+                    <DockPanel Classes="title">
+                        <Label Content="BACKUP" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="BACKUP__INTERVAL" />
+                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select interval...">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Never" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Everyday" />
+                        </ComboBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="MAXIMUM__NUMBER__OF__BACKUPS" />
+                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select number...">
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="1" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="2" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="5" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="10" />
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="25" />
+                        </ComboBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label />
+                        <Button Content="BACKUP__NOW" HorizontalContentAlignment="Center" MinWidth="120" Click=""/>
+                    </DockPanel>
+                    
+                    <!-- Advanced settings -->
+                    <DockPanel Classes="title">
+                        <Label Content="ADVANCED__SETTINGS" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="WARNING__EDIT__AT__YOUR__OWN__RISK"
+                               Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,10,0,0">
+                        <Label Content="PACKET__FILTER" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="FILTER" Height="28" MinWidth="350" TextWrapping="NoWrap" />
+                            <Button Content="RESET" Height="30" MaxWidth="120" VerticalContentAlignment="Center"
+                                    Margin="5,0,0,0" Click="" />
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="ALBION__DATA__PROJECT__BASE__URL__WEST" />
+                        <TextBox Text="API_URL_WEST" Height="40" TextWrapping="Wrap" Margin="0,0,5,0 "/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="ALBION__DATA__PROJECT__BASE__URL__EAST" />
+                        <TextBox Text="API_URL_EAST" Height="40" TextWrapping="Wrap" Margin="0,0,5,0 "/>
+                    </DockPanel>
+                    
+                    
+                    <!-- Dev -->
+                    <DockPanel Classes="title">
+                        <Label Content="DEV__TOOLS" />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label />
+                        <Button Content="OPEN__DEBUG__CONSOLE" Height="26" Click="" />
+                    </DockPanel>
+                </StackPanel>
+            </ScrollViewer>
+            <Grid Grid.Row="1" Height="44" VerticalAlignment="Bottom" Background="{StaticResource Color.Background.1}">
+                <Button Content="SAVE" Margin="5,10,0,8" Width="110" Click="" HorizontalContentAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

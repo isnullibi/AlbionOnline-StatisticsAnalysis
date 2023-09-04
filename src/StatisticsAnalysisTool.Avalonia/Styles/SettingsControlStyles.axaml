@@ -1,0 +1,29 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--<Style Selector="ComboBox Label">
+        <Setter Property="Height" Value="23" />
+    </Style>-->
+
+    <Style Selector="Label">
+        <Setter Property="Margin" Value="0,1,0,0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="StackPanel > DockPanel">
+        <Setter Property="Margin" Value="0,5,0,0"/>
+
+        <Style Selector="^ > Label">
+            <Setter Property="MinWidth" Value="300" />
+        </Style>
+
+        <Style Selector="^.title">
+            <Setter Property="Margin" Value="0,20,0,0" />
+
+            <Style Selector="^ > Label">
+                <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+        </Style>
+    </Style>
+</Styles>

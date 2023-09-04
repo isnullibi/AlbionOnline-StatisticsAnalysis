@@ -14,7 +14,7 @@
     
     <Style Selector="Label">
         <Style Selector="^.title">
-            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="HorizontalAlignment" Value="Left" /> 
             <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold" />
@@ -36,6 +36,19 @@
             <Setter Property="Padding" Value="0"/>
             <Setter Property="Margin" Value="0"/>
             <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        
+        <!--Tracking label styles-->
+        <Style Selector="^.notActive">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.6}"/>
+        </Style>
+
+        <Style Selector="^.partiallyActive">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Yellow.1}"/>
+        </Style>
+
+        <Style Selector="^.active">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Green.4}"/>
         </Style>
     </Style>
 

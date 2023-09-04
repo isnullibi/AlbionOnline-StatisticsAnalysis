@@ -9,12 +9,13 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="/Styles/Colors.axaml" />
+                <ResourceInclude Source="/UserControls/Controls/CustomComboBox.axaml" />
+                <ResourceInclude Source="/UserControls/Controls/CustomCheckBox.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
         <!--<x:Boolean x:Key="UseSystemFocusVisuals">False</x:Boolean>-->
-        
     </Application.Resources>
   
     <Application.Styles>

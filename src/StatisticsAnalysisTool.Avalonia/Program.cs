@@ -1,10 +1,7 @@
-﻿using Serilog;
-using Avalonia;
+﻿using Avalonia;
 using Projektanker.Icons.Avalonia;
 using Projektanker.Icons.Avalonia.FontAwesome;
 using System;
-using System.IO;
-using System.Reflection;
 
 namespace StatisticsAnalysisTool.Avalonia;
 
@@ -16,16 +13,7 @@ internal class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        InitLogger();
-        try
-        {
-            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
-        }
-        catch(Exception ex)
-        {
-            Log.Fatal(ex, "{message}", MethodBase.GetCurrentMethod()?.DeclaringType);
-        }
-        
+        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.
@@ -38,19 +26,5 @@ internal class Program
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace();
-    }
-
-    private static void InitLogger()
-    {
-        //const string logFolerName = "logs";
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console()
-            .WriteTo.File(
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sat-.logs"),
-                rollingInterval: RollingInterval.Day,
-                retainedFileCountLimit: 7,
-                restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose)
-            .MinimumLevel.Verbose()
-            .CreateLogger();
     }
 }

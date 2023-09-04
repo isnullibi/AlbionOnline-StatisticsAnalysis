@@ -4,7 +4,7 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Serilog;
-using StatisticsAnalysisTool.Common;
+using StatisticsAnalysisTool.Avalonia.Common;
 using StatisticsAnalysisTool.Avalonia.ViewModels;
 using StatisticsAnalysisTool.Avalonia.Views;
 using System;

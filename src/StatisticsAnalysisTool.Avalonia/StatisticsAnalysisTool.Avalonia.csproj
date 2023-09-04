@@ -19,10 +19,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
 	<AvaloniaResource Include="Resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaXaml Remove="Controls\**" />
+    <Compile Remove="Controls\**" />
+    <EmbeddedResource Remove="Controls\**" />
+    <None Remove="Controls\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -154,6 +159,11 @@
     <None Remove="Resources\Trash.png" />
     <None Remove="Resources\zone.png" />
     <None Remove="sat-icon.ico" />
+    <None Remove="Sounds\alert1.wav" />
+    <None Remove="Sounds\alert2.wav" />
+    <None Remove="Sounds\alert3.wav" />
+    <None Remove="Sounds\alert4.wav" />
+    <None Remove="Sounds\dungeon_closed.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -193,6 +203,21 @@
     <Content Include="sat-icon.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\alert1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\alert2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\alert3.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\alert4.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\dungeon_closed.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 
@@ -209,6 +234,7 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
     <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
   </ItemGroup>
 
@@ -594,5 +620,20 @@
     <AvaloniaResource Update="Resources\zone.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AvaloniaResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

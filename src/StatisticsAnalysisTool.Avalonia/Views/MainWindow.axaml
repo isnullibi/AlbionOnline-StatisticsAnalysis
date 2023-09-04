@@ -24,9 +24,8 @@
     <Grid Classes="mainGrid">
         <Grid Classes="backgroundImage"/>
 
-        <Grid ZIndex="-1" Height="90" VerticalAlignment="Top" DoubleTapped="Grid_DoubleTapped">
-            <Grid Background="{StaticResource SolidColorBrush.Background.5}" Opacity="0.5"
-                  PointerPressed="Hotbar_Holding"/>
+        <Grid ZIndex="-1" Height="90" VerticalAlignment="Top" DoubleTapped="Grid_DoubleTapped" PointerPressed="Hotbar_Holding">
+            <Grid Background="{StaticResource SolidColorBrush.Background.5}" Opacity="0.5" />
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Classes="windowControl minimize" Name="MinimizedButton"
                         Click="MinimizeButton_Click" />
@@ -39,7 +38,8 @@
                                  FontSize="14" IsVisible="False"/>
                     </Panel>
                 </Button>
-                <Button Classes="windowControl close" Click="CloseButton_Click" />
+                <Button Classes="windowControl close" IsEnabled="{Binding IsCloseButtonActive}"
+                        Click="CloseButton_Click" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0">
@@ -47,19 +47,23 @@
                     <StackPanel Orientation="Horizontal" Height="38" VerticalAlignment="Top" Margin="35,0,90,0">
                         <Label Classes="title" VerticalAlignment="Center"
                                Content="AVALONIA STATISTICS ANALYSIS TOOL"/>
-                        <Grid IsVisible="True"
+                        <Grid IsVisible="{Binding IsOsUnsupported, FallbackValue=False}"
                               Height="20" Width="20" VerticalAlignment="Center" ToolTip.Tip="UNSUPPORTED_OS">
                             <fa:Icon Value="fa-solid fa-triangle-exclamation" FontSize="17"
                                      Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" />
                         </Grid>
                         <Label Classes="title" VerticalAlignment="Center"
                                Content="- DEBUG -" Foreground="{StaticResource SolidColorBrush.Accent.Red.3}"
-                               IsVisible="True"/>
+                               IsVisible="{Binding IsDebugMode}"/>
                         <Label Classes="trackingContent" VerticalAlignment="Center"
                                Content="(SERVER_TYPE)" Foreground="{StaticResource SolidColorBrush.Accent.Blue.4}"
                                />
-                        <Label Content="TRACKING_IS_NOT_ACTIVE" VerticalAlignment="Center"/>
-                        <!-- Label style need to be impl -->
+                        <Panel>
+                            <Label Classes="notActive" Content="TRACKING_IS_NOT_ACTIVE" VerticalAlignment="Center" IsVisible="True" />
+                            <Label Classes="partiallyActive" Content="TRACKING_IS_PARTIALLY_ACTIVE"
+                                   VerticalAlignment="Center" IsVisible="False" />
+                            <Label Classes="active" Content="TRACKING_IS_ACTIVE" VerticalAlignment="Center" IsVisible="False" />
+                        </Panel>
                         <Grid Classes="loadingIconGrid" IsVisible="True" VerticalAlignment="Center">
                             <fa:Icon Classes="loadingIcon" />
                         </Grid>
@@ -97,9 +101,9 @@
                             </StackPanel>
                         </StackPanel>
                     </Grid>
-                    <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Height="18">
+                    <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Height="18">
                         <StackPanel Orientation="Horizontal">
-                            <Label Classes="trackingContent" Content="00:00:00" />
+                            <Label Classes="trackingContent" Content="00:00:00" VerticalContentAlignment="Center" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -107,7 +111,7 @@
 
             <Grid Height="26" VerticalAlignment="Top" Margin="10,62,0,0" HorizontalAlignment="Left" Width="500">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="0" Margin="1,3,0,1"/>
+                    <Label Content="{Binding PartyMemberNumber}" Margin="1,3,0,1"/>
                     <Grid Height="20" Width="20" Margin="0,0,5,0" VerticalAlignment="Center" PointerPressed="">
                         <fa:Icon Value="fa-solid fa-users"
                                  FontSize="17" Foreground="{StaticResource SolidColorBrush.Text.1}" />
@@ -116,7 +120,8 @@
                 </StackPanel>
             </Grid>
             
-            <ProgressBar Margin="0,89,0,0" Height="1" Minimum="0" Maximum="100" Value="0"/>
+            <ProgressBar Margin="0,89,0,0" Minimum="0" Maximum="100"
+                         Value="{Binding ToolTaskProgressBarValue, FallbackValue=0}"/>
 
             <Grid PointerPressed="">
                 <fa:Icon Value="fa-solid fa-angles-down" Foreground="{StaticResource SolidColorBrush.Text.1}"
@@ -258,7 +263,7 @@
             </TabItem>
             <TabItem Header="SETTINGS">
                 <Grid Classes="tabItemGrid">
-
+                    <userControls:SettingsControl />
                 </Grid>
             </TabItem>
         </TabControl>

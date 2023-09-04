@@ -26,12 +26,6 @@ public partial class ErrorBarControl : UserControl
     {
         if (e.NewValue?.ToString() != string.Empty) IsVisible = true;
         else IsVisible = false;
-        //if (e.NewValue?.ToString() == string.Empty) IsVisible = false;
-        //else
-        //{
-        //    errorLabel.Content = e.NewValue.ToString();
-        //    IsVisible = true;
-        //}
     }
 
     private void BtnErrorBar_Click(object sender, RoutedEventArgs e)

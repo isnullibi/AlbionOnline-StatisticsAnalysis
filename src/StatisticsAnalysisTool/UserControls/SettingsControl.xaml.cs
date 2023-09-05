@@ -1,5 +1,4 @@
-﻿
-using Serilog;
+﻿using Serilog;
 using StatisticsAnalysisTool.Backup;
 using StatisticsAnalysisTool.Common;
 using StatisticsAnalysisTool.Common.Shortcut;

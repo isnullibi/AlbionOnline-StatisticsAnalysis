@@ -9,8 +9,13 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="/Styles/Colors.axaml" />
+                
+                <!-- Custom controls -->
                 <ResourceInclude Source="/UserControls/Controls/CustomComboBox.axaml" />
                 <ResourceInclude Source="/UserControls/Controls/CustomCheckBox.axaml" />
+                
+                <!-- Data templates -->
+                <ResourceInclude Source="/DataTemplates/SettingsWindowDataTemplates.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

@@ -1,0 +1,8 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:models="clr-namespace:StatisticsAnalysisTool.Avalonia.Models">
+
+    <DataTemplate DataType="models:TabVisibilityFilter" x:Key="TabVisibilityFilter">
+        <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding Name}" />
+    </DataTemplate>
+</ResourceDictionary>

@@ -5,6 +5,10 @@ using StatisticsAnalysisTool.Avalonia.Common;
 using StatisticsAnalysisTool.Avalonia.Common.Shortcut;
 using Avalonia.Markup.Xaml;
 using StatisticsAnalysisTool.Avalonia.ViewModels;
+using Serilog;
+using System.Diagnostics;
+using System.Reflection;
+using System;
 
 namespace StatisticsAnalysisTool.Avalonia.UserControls;
 
@@ -28,9 +32,23 @@ public partial class SettingsControl : UserControl
         ShortcutController.CreateShortcut();
     }
 
+    private void OpenToolDirectory_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            _ = Process.Start(new ProcessStartInfo { FileName = SettingsWindowViewModel.ToolDirectory, UseShellExecute = true });
+        }
+        catch (Exception ex)
+        {
+            //_ = MessageBox.Show(ex.Message, LanguageController.Translation("ERROR"));
+            //ConsoleManager.WriteLineForError(MethodBase.GetCurrentMethod()?.DeclaringType, ex);
+            Log.Error(ex, "{message}", MethodBase.GetCurrentMethod()?.DeclaringType);
+        }
+    }
+
     private void BtnSave_Click(object sender, RoutedEventArgs e)
     {
-        return;
+        _settingsWindowViewModel.SaveSettings();
     }
 
     private async void CheckForUpdate_Click(object sender, RoutedEventArgs e)
@@ -40,7 +58,7 @@ public partial class SettingsControl : UserControl
 
     private void ResetPacketFilter_Click(object sender, RoutedEventArgs e)
     {
-        return;
+        _settingsWindowViewModel.ResetPacketFilter();
     }
 
     private void ResetPlayerSelectionWithSameNameInDb_Click(object sender, RoutedEventArgs e)

@@ -237,13 +237,14 @@
     </Style>
 
     <Style Selector="ComboBox">
-        <Setter Property="Height" Value="28" />
+        <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="200" />
         <Setter Property="BorderBrush" Value="{StaticResource Color.Text.5}" />
     </Style>
 
     <Style Selector="ComboBoxItem">
         <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="11,0" />
         <Setter Property="Height" Value="28" />
         <Setter Property="Template">
@@ -264,6 +265,7 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
             <Setter Property="Background" Value="{StaticResource Color.Background.1}" />
         </Style>
         
@@ -273,6 +275,7 @@
 
         <Style Selector="^:selected">
             <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.1}" />
                 <Setter Property="Background" Value="{StaticResource Color.Background.1}" />
             </Style>
             

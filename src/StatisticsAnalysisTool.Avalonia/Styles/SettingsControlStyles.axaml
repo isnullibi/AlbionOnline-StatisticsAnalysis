@@ -1,9 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <!--<Style Selector="ComboBox Label">
-        <Setter Property="Height" Value="23" />
-    </Style>-->
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:StatisticsAnalysisTool.Avalonia.ViewModels"
+        x:DataType="vm:SettingsWindowViewModel">
 
     <Style Selector="Label">
         <Setter Property="Margin" Value="0,1,0,0" />

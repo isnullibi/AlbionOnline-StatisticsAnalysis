@@ -5,6 +5,7 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Serilog;
 using StatisticsAnalysisTool.Avalonia.Common;
+using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
 using StatisticsAnalysisTool.Avalonia.ViewModels;
 using StatisticsAnalysisTool.Avalonia.Views;
 using System;
@@ -30,7 +31,8 @@ public partial class App : Application
             // Line below is needed to remove Avalonia data validation.
             // Without this line you will get duplicate validations from both Avalonia and CT
             BindingPlugins.DataValidators.RemoveAt(0);
-            desktop.Startup += OnStartup;            
+            desktop.Startup += OnStartup;
+            desktop.Exit += OnExit;
         }
 
         base.OnFrameworkInitializationCompleted();
@@ -51,6 +53,7 @@ public partial class App : Application
 
         Log.Information($"Tool started with v{Assembly.GetExecutingAssembly().GetName().Version}");
 
+        SettingsController.LoadSettings();
 
         //Settings loading
         //Lang init
@@ -68,9 +71,15 @@ public partial class App : Application
         desktop.MainWindow.Show();
     }
 
+    private void OnExit(object? sender, ControlledApplicationLifetimeExitEventArgs e)
+    {
+        CriticalData.Save();
+    } 
+
     private void RegisterServicesEarly()
     {
         _mainWindowViewModel = new MainWindowViewModel();
+        ServiceLocator.Register<MainWindowViewModel>(_mainWindowViewModel);
     }
     private static void InitLogger()
     {

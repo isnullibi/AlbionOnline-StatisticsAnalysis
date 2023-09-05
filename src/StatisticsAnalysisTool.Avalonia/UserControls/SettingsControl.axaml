@@ -32,23 +32,24 @@
                     </DockPanel>
                     <DockPanel>
                         <Label />
-                        <Button Height="44" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold"
+                        <Button Height="44" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold"
                                 Content="CHECK_FOR_UPDATE" HorizontalContentAlignment="Center"
                                 Click="CheckForUpdate_Click" />
                     </DockPanel>
                     <DockPanel>
                         <Label Content="SUGGEST_PRE_RELEASE_UPDATES" />
-                        <CheckBox IsChecked="{Binding IsSuggestPreReleaseUpdatesActive}" VerticalContentAlignment="Center" >
+                        <CheckBox IsChecked="{Binding IsSuggestPreReleaseUpdatesActive}"
+                                  VerticalContentAlignment="Center" >
                             <Label Content="ATTENTION__THESE__VERSION__ARE__STILL__BEING__TESTED"
                                    Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" />
                         </CheckBox>
                     </DockPanel>
                     <DockPanel>
                         <Label Content="NAVIGATION__TAB__VISIBILITY" />
-                        <ComboBox HorizontalContentAlignment="Left">
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Text 1" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Text 2" />
-                        </ComboBox>
+                        <ComboBox HorizontalContentAlignment="Left"
+                                  ItemsSource="{Binding TabVisibilities}"
+                                  ItemTemplate="{StaticResource TabVisibilityFilter}" />
                     </DockPanel>
                     <DockPanel>
                         <Label Content="NOTIFICATIONS" />
@@ -59,33 +60,41 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="CHARACTER_NAME_TO_TRACK" />
-                        <TextBox Text="NICKNAME" Height="28" TextWrapping="NoWrap" MaxLength="50" Margin="0,0,5,0" />
+                        <TextBox Text="NICKNAME" Height="28" TextWrapping="NoWrap"
+                                 MaxLength="50" Margin="0,0,5,0" />
                     </DockPanel>
                     <DockPanel>
                         <Label Content="PLAYER_SELECTION_WITH_SAME_NAME_IN_DB" />
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Text="{Binding PlayerSelectionWithSameNameInDb}" Height="28" MinWidth="100"
-                                     TextWrapping="NoWrap" Margin="0,0,5,0" MaxLength="2" />
-                            <Button Content="RESET" Height="30" MaxWidth="100" VerticalContentAlignment="Center"
+                            <TextBox Text="{Binding PlayerSelectionWithSameNameInDb}" Height="28"
+                                     MinWidth="100" TextWrapping="NoWrap" Margin="0,0,5,0"
+                                     MaxLength="2" />
+                            <Button Content="RESET" Height="30" MaxWidth="100"
+                                    VerticalContentAlignment="Center"
                                     Click="ResetPlayerSelectionWithSameNameInDb_Click" />
                         </StackPanel>
                     </DockPanel>
                     <DockPanel>
                         <Label />
                         <Button Content="OPEN_TOOL_DIRECTORY" MinWidth="300" Height="26"
-                                HorizontalContentAlignment="Center" Click="" />
+                                HorizontalContentAlignment="Center"
+                                Click="OpenToolDirectory_Click" />
                     </DockPanel>
                     <DockPanel>
                         <Label />
                         <Button Content="CREATE__DESKTOP__SHORTCUT" MinWidth="300" Height="26"
-                                HorizontalContentAlignment="Center" Click="CreateDesktopShortcut_Click" />
+                                HorizontalContentAlignment="Center"
+                                Click="CreateDesktopShortcut_Click" />
                     </DockPanel>
                     <DockPanel>
                         <Label Content="ANOTHER_APP_TO_START_PATH" Height="40" />
-                        <Grid Background="{StaticResource SolidColorBrush.Background.4}" Margin="0,0,0,0">
-                            <Image Source="{Binding AnotherAppToStartExeIcon}" Width="35" Height="35" Margin="3"/>
+                        <Grid Background="{StaticResource SolidColorBrush.Background.4}"
+                              Margin="0,0,0,0">
+                            <Image Source="{Binding AnotherAppToStartExeIcon}"
+                                   Width="35" Height="35" Margin="3"/>
                         </Grid>
-                        <TextBox Text="PATH_TO_EXE" Height="40" TextWrapping="Wrap" Margin="5,0" />
+                        <TextBox Text="{Binding AnotherAppToStartPath}" Height="40"
+                                 TextWrapping="Wrap" Margin="5,0" />
                     </DockPanel>
                     
                     <!-- Tracking -->
@@ -94,10 +103,9 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="SET__SERVER__MANUALLY" />
-                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select server...">
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="West" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="East" />
-                        </ComboBox>
+                        <ComboBox HorizontalContentAlignment="Left" ItemsSource="{Binding Server}"
+                                  SelectedItem="{Binding ServerSelection}"
+                                  DisplayMemberBinding="{Binding Name}" />
                     </DockPanel>
                     
                     <!-- Item window -->
@@ -147,24 +155,24 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="BACKUP__INTERVAL" />
-                        <ComboBox HorizontalContentAlignment="Left" ItemsSource="{Binding MaximumNumberOfBackups}"
-                                  SelectedItem="{Binding BackupIntervalByDaysSelection}" DisplayMemberBinding="{Binding Name}">
-                        </ComboBox>
+                        <ComboBox HorizontalContentAlignment="Left"
+                                  ItemsSource="{Binding BackupIntervalByDays}"
+                                  SelectedItem="{Binding BackupIntervalByDaysSelection}"
+                                  DisplayMemberBinding="{Binding Name}" />
                     </DockPanel>
                     <DockPanel>
                         <Label Content="MAXIMUM__NUMBER__OF__BACKUPS" />
-                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select number...">
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="1" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="2" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="5" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="10" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="25" />
-                        </ComboBox>
+                        <ComboBox HorizontalContentAlignment="Left"
+                                  ItemsSource="{Binding MaximumNumberOfBackups}"
+                                  SelectedItem="{Binding MaximumNumberOfBackupsSelection}"
+                                  DisplayMemberBinding="{Binding Name}" />
                     </DockPanel>
                     <DockPanel>
                         <Label />
-                        <Button Content="BACKUP__NOW" HorizontalContentAlignment="Center" MinWidth="120"
-                                IsEnabled="{Binding IsBackupNowButtonEnabled}" Click="BackupNow_Click"/>
+                        <Button Content="BACKUP__NOW" HorizontalContentAlignment="Center"
+                                MinWidth="120"
+                                IsEnabled="{Binding IsBackupNowButtonEnabled}"
+                                Click="BackupNow_Click"/>
                     </DockPanel>
                     
                     <!-- Advanced settings -->
@@ -178,18 +186,22 @@
                     <DockPanel Margin="0,10,0,0">
                         <Label Content="PACKET__FILTER" />
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Text="{Binding PacketFilter}" Height="28" MinWidth="350" TextWrapping="NoWrap" />
-                            <Button Content="RESET" Height="30" MaxWidth="120" VerticalContentAlignment="Center"
+                            <TextBox Text="{Binding PacketFilter}" Height="28" MinWidth="350"
+                                     TextWrapping="NoWrap" />
+                            <Button Content="RESET" Height="30" MaxWidth="120"
+                                    VerticalContentAlignment="Center"
                                     Margin="5,0,0,0" Click="ResetPacketFilter_Click" />
                         </StackPanel>
                     </DockPanel>
                     <DockPanel>
                         <Label Content="ALBION__DATA__PROJECT__BASE__URL__WEST" />
-                        <TextBox Text="API_URL_WEST" Height="40" TextWrapping="Wrap" Margin="0,0,5,0 "/>
+                        <TextBox Text="{Binding AlbionDataProjectBaseUrlWest}" Height="40"
+                                 TextWrapping="Wrap" Margin="0,0,5,0 "/>
                     </DockPanel>
                     <DockPanel>
                         <Label Content="ALBION__DATA__PROJECT__BASE__URL__EAST" />
-                        <TextBox Text="API_URL_EAST" Height="40" TextWrapping="Wrap" Margin="0,0,5,0 "/>
+                        <TextBox Text="{Binding AlbionDataProjectBaseUrlEast}" Height="40"
+                                 TextWrapping="Wrap" Margin="0,0,5,0 "/>
                     </DockPanel>
                     
                     
@@ -204,9 +216,10 @@
                     </DockPanel>
                 </StackPanel>
             </ScrollViewer>
-            <Grid Grid.Row="1" Height="44" VerticalAlignment="Bottom" Background="{StaticResource Color.Background.1}">
-                <Button Content="SAVE" Margin="5,10,0,8" Width="110" HorizontalContentAlignment="Center"
-                        Click="BtnSave_Click" />
+            <Grid Grid.Row="1" Height="44" VerticalAlignment="Bottom"
+                  Background="{StaticResource Color.Background.1}">
+                <Button Content="SAVE" Margin="5,10,0,8" Width="110"
+                        HorizontalContentAlignment="Center" Click="BtnSave_Click" />
             </Grid>
         </Grid>
     </Grid>

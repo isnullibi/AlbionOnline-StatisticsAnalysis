@@ -6,8 +6,7 @@
         <Border Padding="20">
             <StackPanel Spacing="10">
                 <ComboBox PlaceholderText="Select an item">
-                    <ComboBoxItem>Item 1</ComboBoxItem>
-                    <ComboBoxItem>Item 2</ComboBoxItem>
+                    <CheckBox Content="Yolo" />
                 </ComboBox>
                 <ComboBox IsEnabled="False"
                           Width="200"
@@ -35,7 +34,7 @@
 
     <Thickness x:Key="ComboBoxPadding">12,6,0,6</Thickness>
     <Thickness x:Key="ComboBoxEditableTextPadding">11,5,32,6</Thickness>
-    <x:Double x:Key="ComboBoxMinHeight">28</x:Double>
+    <x:Double x:Key="ComboBoxMinHeight">32</x:Double>
 
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Padding" Value="{DynamicResource ComboBoxPadding}" />

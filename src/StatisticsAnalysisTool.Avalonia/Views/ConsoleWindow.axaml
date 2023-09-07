@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="https://github.com/projektanker/icons.avalonia"
+        xmlns:vm="clr-namespace:StatisticsAnalysisTool.Avalonia.ViewNodels"
+        xmlns:common="clr-namespace:StatisticsAnalysisTool.Avalonia.Common"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="StatisticsAnalysisTool.Avalonia.Views.ConsoleWindow"
+        BorderBrush="{StaticResource SolidColorBrush.Background.3}"
+        Title="DEBUG_CONSOLE">
+    <Grid Background="{StaticResource SolidColorBrush.Background.1}">
+        <Grid ZIndex="1" Height="33" VerticalAlignment="Top" PointerPressed="Hotbar_Holding"
+              DoubleTapped="Grid_DoubleTapped" Background="{StaticResource SolidColorBrush.Background.2}">
+            <Label Content="DEBUG__CONSOLE" Margin="0,0,91,0" Height="33" FontSize="16" FontWeight="Bold"
+                   Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalContentAlignment="Center"/>
+            <Separator Margin="5,30,5,0" VerticalAlignment="Top" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Classes="windowControl minimize" Click="MinimizeButton_Click" />
+                <Button Classes="windowControl" Click="MaximizedButton_Click">
+                    <Panel>
+                        <fa:Icon Name="MaximizeButton" Value="fa-regular fa-window-maximize"
+                                 FontSize="14" IsVisible="True"/>
+                        <fa:Icon Name="RestoreButton" Value="fa-regular fa-window-restore"
+                                 FontSize="14" IsVisible="False"/>
+                    </Panel>
+                </Button>
+                <Button Classes="windowControl close" Click="CloseButton_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="0,33,-1,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <Button Content="START" Margin="5,0,0,0" Height="26"
+                        MaxWidth="200" MinWidth="80" HorizontalContentAlignment="Center"
+                        Click="BtnStartConsole_Click" />
+                <Button Content="STOP" Margin="5,0,0,0" Height="26"
+                        MaxWidth="200" MinWidth="80" HorizontalContentAlignment="Center"
+                        Click="BtnStopConsole_Click" />
+                <Button Content="RESET" Margin="5,0,0,0" Height="26"
+                        MaxWidth="200" MinWidth="80" HorizontalContentAlignment="Center"
+                        Click="BtnResetConsole_Click" />
+            </StackPanel>
+            <ScrollViewer Margin="0,30,0,0" common:ScrollViewerExtensions.AlwaysScrollToEnd="True">
+                <!-- WIP -->
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

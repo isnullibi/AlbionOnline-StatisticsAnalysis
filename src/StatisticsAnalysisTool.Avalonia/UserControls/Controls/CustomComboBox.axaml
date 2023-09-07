@@ -6,7 +6,7 @@
         <Border Padding="20">
             <StackPanel Spacing="10">
                 <ComboBox PlaceholderText="Select an item">
-                    <CheckBox Content="Yolo" />
+                    <CheckBox Content="Checkbox test" />
                 </ComboBox>
                 <ComboBox IsEnabled="False"
                           Width="200"

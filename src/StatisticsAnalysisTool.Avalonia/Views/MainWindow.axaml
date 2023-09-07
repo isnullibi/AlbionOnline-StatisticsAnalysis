@@ -196,57 +196,57 @@
         </Grid>
 
         <TabControl Classes="tabList">
-            <TabItem Header="DASHBOARD">
+            <TabItem Header="DASHBOARD" IsVisible="{Binding IsDashboardTabVisible}">
                 <Grid Classes="tabItemGrid">
                     
                 </Grid>
             </TabItem>
-            <TabItem Header="ITEM_SEARCH">
+            <TabItem Header="ITEM_SEARCH" IsVisible="{Binding IsItemSearchTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="LOGGING">
+            <TabItem Header="LOGGING" IsVisible="{Binding IsLoggingTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="DUNGEONS">
+            <TabItem Header="DUNGEONS" IsVisible="{Binding IsDungeonsTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="DAMAGE_METER">
+            <TabItem Header="DAMAGE_METER" IsVisible="{Binding IsDamageMeterTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="TRADE_MONITORING">
+            <TabItem Header="TRADE_MONITORING" IsVisible="{Binding IsTradeMonitoringTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="GATHERING">
+            <TabItem Header="GATHERING" IsVisible="{Binding IsGatheringTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="PARTY_BUILDER">
+            <TabItem Header="PARTY_BUILDER" IsVisible="{Binding IsPartyBuilderTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="STORAGE_HISTORY">
+            <TabItem Header="STORAGE_HISTORY" IsVisible="{Binding IsStorageHistoryTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="MAP_HISTORY">
+            <TabItem Header="MAP_HISTORY" IsVisible="{Binding IsMapHistoryTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="PLAYER_INFO">
+            <TabItem Header="PLAYER_INFO" IsVisible="{Binding IsPlayerInformationTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>

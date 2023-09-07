@@ -3,6 +3,6 @@
                     xmlns:models="clr-namespace:StatisticsAnalysisTool.Avalonia.Models">
 
     <DataTemplate DataType="models:TabVisibilityFilter" x:Key="TabVisibilityFilter">
-        <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding Name}" />
+            <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding Name}" />
     </DataTemplate>
 </ResourceDictionary>

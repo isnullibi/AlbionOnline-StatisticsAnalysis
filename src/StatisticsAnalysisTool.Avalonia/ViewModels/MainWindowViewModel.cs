@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Avalonia.Controls.Notifications;
+using CommunityToolkit.Mvvm.ComponentModel;
+using StatisticsAnalysisTool.Avalonia;
 using System;
 using System.Threading.Tasks;
 
@@ -8,25 +10,25 @@ public partial class MainWindowViewModel : ObservableObject
 {
     #region Bindings
 
-    [ObservableProperty] private string _errorText = string.Empty;
     [ObservableProperty] private bool _isDebugMode;
     [ObservableProperty] private bool _isOsUnsupported;
     [ObservableProperty] private bool _isCloseButtonActive;
+    [ObservableProperty] private bool _isDashboardTabVisible = true;
+    [ObservableProperty] private bool _isItemSearchTabVisible = true;
+    [ObservableProperty] private bool _isLoggingTabVisible = true;
+    [ObservableProperty] private bool _isDungeonsTabVisible = true;
+    [ObservableProperty] private bool _isDamageMeterTabVisible = true;
+    [ObservableProperty] private bool _isTradeMonitoringTabVisible = true;
+    [ObservableProperty] private bool _isGatheringTabVisible = true;
+    [ObservableProperty] private bool _isPartyBuilderTabVisible = true;
+    [ObservableProperty] private bool _isStorageHistoryTabVisible = true;
+    [ObservableProperty] private bool _isMapHistoryTabVisible = true;
+    [ObservableProperty] private bool _isPlayerInformationTabVisible = true;
+    [ObservableProperty] private bool _isToolTaskFrontViewVisible = false;
+    [ObservableProperty] private bool _isStatsDropDownVisible = false;
     [ObservableProperty] private int _partyMemberNumber = 0;
     [ObservableProperty] private double _toolTaskProgressBarValue = 0;
-    [ObservableProperty] private bool _dashboardTabVisibility = true;
-    [ObservableProperty] private bool _itemSearchTabVisibility = true;
-    [ObservableProperty] private bool _loggingTabVisibility = true;
-    [ObservableProperty] private bool _dungeonsTabVisibility = true;
-    [ObservableProperty] private bool _damageMeterTabVisibility = true;
-    [ObservableProperty] private bool _tradeMonitoringTabVisibility = true;
-    [ObservableProperty] private bool _gatheringTabVisibility = true;
-    [ObservableProperty] private bool _partyBuilderTabVisibility = true;
-    [ObservableProperty] private bool _storageHistoryTabVisibility = true;
-    [ObservableProperty] private bool _mapHistoryTabVisibility = true;
-    [ObservableProperty] private bool _playerInformationTabVisibility = true;
-    [ObservableProperty] private bool _toolTaskFrontViewVisibility = false;
-    [ObservableProperty] private bool _statsDropDownVisibility = false;
+    [ObservableProperty] private string _errorText = string.Empty;
 
 
     #endregion

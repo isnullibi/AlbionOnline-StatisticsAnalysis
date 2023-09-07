@@ -2,9 +2,11 @@
 using StatisticsAnalysisTool.Avalonia.Models;
 using StatisticsAnalysisTool.Avalonia.Enumerations;
 using StatisticsAnalysisTool.Avalonia.Common;
+using StatisticsAnalysisTool.Avalonia.Utilities;
 using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
 using System;
 using System.IO;
+using System.Reflection;
 //using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,30 +15,34 @@ using System.Threading.Tasks;
 using Avalonia.Media.Imaging;
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
+using Serilog;
 
 namespace StatisticsAnalysisTool.Avalonia.ViewModels;
 public partial class SettingsWindowViewModel : ObservableObject
 {
     #region Bindings
 
-    [ObservableProperty] private string _packetFilter = string.Empty;
-    [ObservableProperty] private string _anotherAppToStartPath = string.Empty;
-    [ObservableProperty] private string _albionDataProjectBaseUrlWest = string.Empty;
-    [ObservableProperty] private string _albionDataProjectBaseUrlEast = string.Empty;
-    [ObservableProperty] private short _playerSelectionWithSameNameInDb = 0;
+    [ObservableProperty] private static ObservableCollection<SettingDataInformation> _refreshRates = new();
+    [ObservableProperty] private static SettingDataInformation _refreshRatesSelection;
+
     [ObservableProperty] private bool _isOpenItemWindowInNewWindowChecked;
     [ObservableProperty] private bool _isLootLoggerSaveReminderActive;
     [ObservableProperty] private bool _isSuggestPreReleaseUpdatesActive;
     [ObservableProperty] private bool _isBackupNowButtonEnabled = true;
     [ObservableProperty] private bool _showInfoWindowOnStartChecked;
+    [ObservableProperty] private short _playerSelectionWithSameNameInDb = 0;
+    [ObservableProperty] private string _packetFilter = string.Empty;
+    [ObservableProperty] private string _anotherAppToStartPath = string.Empty;
+    [ObservableProperty] private string _albionDataProjectBaseUrlWest = string.Empty;
+    [ObservableProperty] private string _albionDataProjectBaseUrlEast = string.Empty;
     [ObservableProperty] private Bitmap? _anotherAppToStartExeIcon;
+    [ObservableProperty] private ObservableCollection<TabVisibilityFilter> _tabVisibilities = new();
     [ObservableProperty] private SettingDataInformation _backupIntervalByDaysSelection;
     [ObservableProperty] private SettingDataInformation _maximumNumberOfBackupsSelection;
     [ObservableProperty] private SettingDataInformation _serverSelection;
     [ObservableProperty] private ObservableCollection<SettingDataInformation> _backupIntervalByDays = new();
     [ObservableProperty] private ObservableCollection<SettingDataInformation> _maximumNumberOfBackups = new();
     [ObservableProperty] private ObservableCollection<SettingDataInformation> _server = new();
-    [ObservableProperty] private ObservableCollection<TabVisibilityFilter> _tabVisibilities = new();
 
     public static string ToolDirectory => AppDomain.CurrentDomain.BaseDirectory;
 
@@ -50,6 +56,7 @@ public partial class SettingsWindowViewModel : ObservableObject
     public void InitializeSetting()
     {
         InitNaviTabVisibilities();
+        InitRefreshRate();
         InitServer();
 
         // Backup interval by days
@@ -87,6 +94,7 @@ public partial class SettingsWindowViewModel : ObservableObject
 
     public void SaveSettings()
     {
+        SettingsController.CurrentSettings.RefreshRate = RefreshRatesSelection.Value;
         SettingsController.CurrentSettings.Server = ServerSelection.Value;
         SettingsController.CurrentSettings.AnotherAppToStartPath = AnotherAppToStartPath;
         SettingsController.CurrentSettings.MaximumNumberOfBackups = MaximumNumberOfBackupsSelection.Value;
@@ -138,17 +146,17 @@ public partial class SettingsWindowViewModel : ObservableObject
         SettingsController.CurrentSettings.IsPlayerInformationNaviTabActive = TabVisibilities?.FirstOrDefault(x => x?.NavigationTabFilterType == NavigationTabFilterType.PlayerInformation)?.IsSelected ?? true;
 
         var mainWindowViewModel = ServiceLocator.Resolve<MainWindowViewModel>();
-        mainWindowViewModel.DashboardTabVisibility = SettingsController.CurrentSettings.IsDashboardNaviTabActive;
-        mainWindowViewModel.ItemSearchTabVisibility = SettingsController.CurrentSettings.IsItemSearchNaviTabActive;
-        mainWindowViewModel.LoggingTabVisibility = SettingsController.CurrentSettings.IsLoggingNaviTabActive;
-        mainWindowViewModel.DungeonsTabVisibility = SettingsController.CurrentSettings.IsDungeonsNaviTabActive;
-        mainWindowViewModel.DamageMeterTabVisibility = SettingsController.CurrentSettings.IsDamageMeterNaviTabActive;
-        mainWindowViewModel.TradeMonitoringTabVisibility = SettingsController.CurrentSettings.IsTradeMonitoringNaviTabActive;
-        mainWindowViewModel.GatheringTabVisibility = SettingsController.CurrentSettings.IsGatheringNaviTabActive;
-        mainWindowViewModel.PartyBuilderTabVisibility = SettingsController.CurrentSettings.IsPartyBuilderNaviTabActive;
-        mainWindowViewModel.StorageHistoryTabVisibility = SettingsController.CurrentSettings.IsStorageHistoryNaviTabActive;
-        mainWindowViewModel.MapHistoryTabVisibility = SettingsController.CurrentSettings.IsMapHistoryNaviTabActive;
-        mainWindowViewModel.PlayerInformationTabVisibility = SettingsController.CurrentSettings.IsPlayerInformationNaviTabActive;
+        mainWindowViewModel.IsDashboardTabVisible = SettingsController.CurrentSettings.IsDashboardNaviTabActive;
+        mainWindowViewModel.IsItemSearchTabVisible = SettingsController.CurrentSettings.IsItemSearchNaviTabActive;
+        mainWindowViewModel.IsLoggingTabVisible = SettingsController.CurrentSettings.IsLoggingNaviTabActive;
+        mainWindowViewModel.IsDungeonsTabVisible = SettingsController.CurrentSettings.IsDungeonsNaviTabActive;
+        mainWindowViewModel.IsDamageMeterTabVisible = SettingsController.CurrentSettings.IsDamageMeterNaviTabActive;
+        mainWindowViewModel.IsTradeMonitoringTabVisible = SettingsController.CurrentSettings.IsTradeMonitoringNaviTabActive;
+        mainWindowViewModel.IsGatheringTabVisible = SettingsController.CurrentSettings.IsGatheringNaviTabActive;
+        mainWindowViewModel.IsPartyBuilderTabVisible = SettingsController.CurrentSettings.IsPartyBuilderNaviTabActive;
+        mainWindowViewModel.IsStorageHistoryTabVisible = SettingsController.CurrentSettings.IsStorageHistoryNaviTabActive;
+        mainWindowViewModel.IsMapHistoryTabVisible = SettingsController.CurrentSettings.IsMapHistoryNaviTabActive;
+        mainWindowViewModel.IsPlayerInformationTabVisible = SettingsController.CurrentSettings.IsPlayerInformationNaviTabActive;
     }
 
     private void SetIconSourceToAnotherAppToStart()
@@ -211,7 +219,31 @@ public partial class SettingsWindowViewModel : ObservableObject
         public string Value { get; set; }
     }
 
+    public static void OpenConsoleWindow()
+    {
+        try
+        {
+            if (Utilities.)
+        }
+        catch (Exception e)
+        {
+            ConsoleManager.WriteLineForError(MethodBase.GetCurrentMethod()?.DeclaringType, e);
+            Log.Error(e, "{message}", MethodBase.GetCurrentMethod()?.DeclaringType);
+        }
+    }
+
     #region Inits
+
+    private void InitRefreshRate()
+    {
+        RefreshRates.Clear();
+        RefreshRates.Add(new SettingDataInformation { Name = "FIVE_SECONDS"/*SettingsWindowTranslation.FiveSeconds*/, Value = 5000 });
+        RefreshRates.Add(new SettingDataInformation { Name = "TEN_SECONDS"/*SettingsWindowTranslation.TenSeconds*/, Value = 10000 });
+        RefreshRates.Add(new SettingDataInformation { Name = "THIRTY_SECONDS"/*SettingsWindowTranslation.ThirtySeconds*/, Value = 30000 });
+        RefreshRates.Add(new SettingDataInformation { Name = "SIXTY_SECONDS"/*SettingsWindowTranslation.SixtySeconds*/, Value = 60000 });
+        RefreshRates.Add(new SettingDataInformation { Name = "FIVE_MINUTES"/*SettingsWindowTranslation.FiveMinutes*/, Value = 300000 });
+        RefreshRatesSelection = RefreshRates.FirstOrDefault(x => x.Value == SettingsController.CurrentSettings.RefreshRate);
+    }
 
     private void InitServer()
     {
@@ -306,17 +338,17 @@ public partial class SettingsWindowViewModel : ObservableObject
         if (Design.IsDesignMode) return;
 
         var mainWindowViewModel = ServiceLocator.Resolve<MainWindowViewModel>();
-        mainWindowViewModel.DashboardTabVisibility = SettingsController.CurrentSettings.IsDashboardNaviTabActive;
-        mainWindowViewModel.ItemSearchTabVisibility = SettingsController.CurrentSettings.IsItemSearchNaviTabActive;
-        mainWindowViewModel.LoggingTabVisibility = SettingsController.CurrentSettings.IsLoggingNaviTabActive;
-        mainWindowViewModel.DungeonsTabVisibility = SettingsController.CurrentSettings.IsDungeonsNaviTabActive;
-        mainWindowViewModel.DamageMeterTabVisibility = SettingsController.CurrentSettings.IsDamageMeterNaviTabActive;
-        mainWindowViewModel.TradeMonitoringTabVisibility = SettingsController.CurrentSettings.IsTradeMonitoringNaviTabActive;
-        mainWindowViewModel.GatheringTabVisibility = SettingsController.CurrentSettings.IsGatheringNaviTabActive;
-        mainWindowViewModel.PartyBuilderTabVisibility = SettingsController.CurrentSettings.IsPartyBuilderNaviTabActive;
-        mainWindowViewModel.StorageHistoryTabVisibility = SettingsController.CurrentSettings.IsStorageHistoryNaviTabActive;
-        mainWindowViewModel.MapHistoryTabVisibility = SettingsController.CurrentSettings.IsMapHistoryNaviTabActive;
-        mainWindowViewModel.PlayerInformationTabVisibility = SettingsController.CurrentSettings.IsPlayerInformationNaviTabActive;
+        mainWindowViewModel.IsDashboardTabVisible = SettingsController.CurrentSettings.IsDashboardNaviTabActive;
+        mainWindowViewModel.IsItemSearchTabVisible = SettingsController.CurrentSettings.IsItemSearchNaviTabActive;
+        mainWindowViewModel.IsLoggingTabVisible = SettingsController.CurrentSettings.IsLoggingNaviTabActive;
+        mainWindowViewModel.IsDungeonsTabVisible = SettingsController.CurrentSettings.IsDungeonsNaviTabActive;
+        mainWindowViewModel.IsDamageMeterTabVisible = SettingsController.CurrentSettings.IsDamageMeterNaviTabActive;
+        mainWindowViewModel.IsTradeMonitoringTabVisible = SettingsController.CurrentSettings.IsTradeMonitoringNaviTabActive;
+        mainWindowViewModel.IsGatheringTabVisible = SettingsController.CurrentSettings.IsGatheringNaviTabActive;
+        mainWindowViewModel.IsPartyBuilderTabVisible = SettingsController.CurrentSettings.IsPartyBuilderNaviTabActive;
+        mainWindowViewModel.IsStorageHistoryTabVisible = SettingsController.CurrentSettings.IsStorageHistoryNaviTabActive;
+        mainWindowViewModel.IsMapHistoryTabVisible = SettingsController.CurrentSettings.IsMapHistoryNaviTabActive;
+        mainWindowViewModel.IsPlayerInformationTabVisible = SettingsController.CurrentSettings.IsPlayerInformationNaviTabActive;
     }
 
     #endregion

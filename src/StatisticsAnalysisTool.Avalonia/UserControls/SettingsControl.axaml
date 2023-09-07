@@ -114,10 +114,9 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="REFRESH__RATE" />
-                        <ComboBox HorizontalContentAlignment="Left">
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Never" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Everyday" />
-                        </ComboBox>
+                        <ComboBox HorizontalContentAlignment="Left" ItemsSource="{Binding RefreshRates}"
+                                  SelectedItem="{Binding RefreshRatesSelection}"
+                                  DisplayMemberBinding="{Binding Name}"/>
                     </DockPanel>
                     <DockPanel>
                         <Label Content="OPEN__ITEM__WINDOW__IN__NEW__WINDOW" />

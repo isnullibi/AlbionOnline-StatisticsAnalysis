@@ -1,9 +1,9 @@
-﻿namespace StatisticsAnalysisTool.Avalonia.Enumerations;
+﻿namespace StatisticsAnalysisTool.Enumerations;
 
 public enum TreasureRarity
 {
     Unknown,
-    Standard,
+    Common,
     Uncommon,
     Rare,
     Legendary

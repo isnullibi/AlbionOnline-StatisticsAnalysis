@@ -1,4 +1,4 @@
-﻿namespace StatisticsAnalysisTool.Avalonia.Enumerations;
+﻿namespace StatisticsAnalysisTool.Enumerations;
 
 public enum ValueType
 {
@@ -10,5 +10,6 @@ public enum ValueType
     Might,
     Favor,
     RepairCosts,
-    PaidSilverForReSpec
+    PaidSilverForReSpec,
+    BrecilianStanding
 }

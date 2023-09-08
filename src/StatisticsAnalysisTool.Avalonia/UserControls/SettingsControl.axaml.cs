@@ -1,14 +1,11 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using StatisticsAnalysisTool.Avalonia.Common;
-using StatisticsAnalysisTool.Avalonia.Common.Shortcut;
-using Avalonia.Markup.Xaml;
-using StatisticsAnalysisTool.Avalonia.ViewModels;
 using Serilog;
+using StatisticsAnalysisTool.Avalonia.Common.Shortcut;
+using StatisticsAnalysisTool.Avalonia.ViewModels;
+using System;
 using System.Diagnostics;
 using System.Reflection;
-using System;
 
 namespace StatisticsAnalysisTool.Avalonia.UserControls;
 

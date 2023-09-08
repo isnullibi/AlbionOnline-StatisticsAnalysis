@@ -1,4 +1,5 @@
-﻿using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
+﻿using Serilog;
+using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
 using StatisticsAnalysisTool.Avalonia.Models;
 using StatisticsAnalysisTool.Avalonia.Properties;
 using System;
@@ -8,13 +9,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
-using System.Windows;
-using System.Windows.Markup;
 using System.Xml;
 using System.Xml.Linq;
-using Serilog;
-using Avalonia.Threading;
-using Avalonia.Controls;
 
 namespace StatisticsAnalysisTool.Avalonia.Common;
 
@@ -151,7 +147,7 @@ public static class LanguageController
             }
 
             var fileInfos = (from file in LanguageFiles
-                             where file.FileName.ToUpper() == CurrentCultureInfo?.TextInfo.CultureName.ToUpper()
+                             where file.FileName?.ToUpper() == CurrentCultureInfo?.TextInfo.CultureName.ToUpper()
                              select new FileInformation(file.FileName, file.FilePath)).FirstOrDefault();
 
             if (fileInfos == null)
@@ -182,8 +178,10 @@ public static class LanguageController
         }
     }
 
-    private static bool ReadAndAddLanguageFile(string filePath)
+    private static bool ReadAndAddLanguageFile(string? filePath)
     {
+        if (filePath is null) return false;
+
         try
         {
             Translations.Clear();
@@ -270,11 +268,8 @@ public static class LanguageController
     public static void GetPercentageTranslationValues(string mainLanguageFileName = "en-US")
     {
         var mainLanguageFile = LanguageFiles.FirstOrDefault(x => string.Equals(x.FileName, mainLanguageFileName, StringComparison.CurrentCultureIgnoreCase));
-        if (mainLanguageFile == null)
-        {
-            return;
-        }
-
+        if (mainLanguageFile == null) return;
+        
         var mainLanguageFileCount = CountTranslations(mainLanguageFile.FilePath);
         mainLanguageFile.PercentageTranslations = 100;
 
@@ -291,8 +286,10 @@ public static class LanguageController
         }
     }
 
-    private static int CountTranslations(string filePath)
+    private static int CountTranslations(string? filePath)
     {
+        if (filePath == null) return 0;
+
         var xml = XDocument.Load(filePath);
         return xml.Descendants("translation").Count();
     }

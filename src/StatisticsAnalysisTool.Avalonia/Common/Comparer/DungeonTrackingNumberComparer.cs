@@ -4,7 +4,7 @@ namespace StatisticsAnalysisTool.Avalonia.Common.Comparer;
 
 public class DungeonTrackingNumberComparer : IComparer
 {
-    int IComparer.Compare(object x, object y)
+    int IComparer.Compare(object? x, object? y)
     {
         var numberX = x as int? ?? -1;
         var numberY = y as int? ?? -1;

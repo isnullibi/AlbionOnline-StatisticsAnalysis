@@ -1,9 +1,7 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
-using HarfBuzzSharp;
 using Projektanker.Icons.Avalonia;
+using System;
 
 namespace StatisticsAnalysisTool.Avalonia.Common;
 public class ScrollViewerExtensions

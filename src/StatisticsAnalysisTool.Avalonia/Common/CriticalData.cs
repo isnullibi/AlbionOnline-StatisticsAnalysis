@@ -1,6 +1,5 @@
 ﻿using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
 using StatisticsAnalysisTool.Avalonia.Enumerations;
-//using StatisticsAnalysisTool.Avalonia.Network.Manager;
 using StatisticsAnalysisTool.Avalonia.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;

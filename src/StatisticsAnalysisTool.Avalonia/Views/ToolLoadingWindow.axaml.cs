@@ -1,11 +1,9 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Markup.Xaml;
 using Serilog;
-using System.Reflection;
-using System;
 using StatisticsAnalysisTool.Avalonia.ViewModels;
+using System;
+using System.Reflection;
 
 namespace StatisticsAnalysisTool.Avalonia.Views;
 

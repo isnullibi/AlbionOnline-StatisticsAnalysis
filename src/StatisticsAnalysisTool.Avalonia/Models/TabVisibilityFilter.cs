@@ -1,13 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using StatisticsAnalysisTool.Avalonia.Enumerations;
-using StatisticsAnalysisTool.Avalonia.ViewModels;
 
 namespace StatisticsAnalysisTool.Avalonia.Models;
 
 public partial class TabVisibilityFilter : ObservableObject
 {
     [ObservableProperty] private bool? _isSelected;
-    [ObservableProperty] private string _name;
+    [ObservableProperty] private string? _name;
 
     public TabVisibilityFilter(NavigationTabFilterType navigationTabFilterType)
     {

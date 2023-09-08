@@ -22,7 +22,7 @@
                                Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
                     </DockPanel>
                     <DockPanel>
-                        <Label Content="LANGUAGE (RESTART NEEDED)" />
+                        <Label Content="LANGUAGE (RESTAR__NEEDED)" />
                         <ComboBox PlaceholderText="Select language...">
                             <Label Content="Test 1" />
                             <Label Content="Test 2" />
@@ -34,11 +34,11 @@
                         <Label />
                         <Button Height="44" HorizontalAlignment="Stretch"
                                 VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold"
-                                Content="CHECK_FOR_UPDATE" HorizontalContentAlignment="Center"
+                                Content="CHECK__FOR__UPDATE" HorizontalContentAlignment="Center"
                                 Click="CheckForUpdate_Click" />
                     </DockPanel>
                     <DockPanel>
-                        <Label Content="SUGGEST_PRE_RELEASE_UPDATES" />
+                        <Label Content="SUGGEST__PRE__RELEASE__UPDATES" />
                         <CheckBox IsChecked="{Binding IsSuggestPreReleaseUpdatesActive}"
                                   VerticalContentAlignment="Center" >
                             <Label Content="ATTENTION__THESE__VERSION__ARE__STILL__BEING__TESTED"
@@ -59,12 +59,12 @@
                         </ComboBox>
                     </DockPanel>
                     <DockPanel>
-                        <Label Content="CHARACTER_NAME_TO_TRACK" />
+                        <Label Content="CHARACTER__NAME__TO__TRACK" />
                         <TextBox Text="NICKNAME" Height="28" TextWrapping="NoWrap"
                                  MaxLength="50" Margin="0,0,5,0" />
                     </DockPanel>
                     <DockPanel>
-                        <Label Content="PLAYER_SELECTION_WITH_SAME_NAME_IN_DB" />
+                        <Label Content="PLAYER__SELECTION__WITH__SAME__NAME__IN__DB" />
                         <StackPanel Orientation="Horizontal">
                             <TextBox Text="{Binding PlayerSelectionWithSameNameInDb}" Height="28"
                                      MinWidth="100" TextWrapping="NoWrap" Margin="0,0,5,0"
@@ -76,7 +76,7 @@
                     </DockPanel>
                     <DockPanel>
                         <Label />
-                        <Button Content="OPEN_TOOL_DIRECTORY" MinWidth="300" Height="26"
+                        <Button Content="OPEN__TOOL__DIRECTORY" MinWidth="300" Height="26"
                                 HorizontalContentAlignment="Center"
                                 Click="OpenToolDirectory_Click" />
                     </DockPanel>
@@ -87,7 +87,7 @@
                                 Click="CreateDesktopShortcut_Click" />
                     </DockPanel>
                     <DockPanel>
-                        <Label Content="ANOTHER_APP_TO_START_PATH" Height="40" />
+                        <Label Content="ANOTHER__APP__TO__START__PATH" Height="40" />
                         <Grid Background="{StaticResource SolidColorBrush.Background.4}"
                               Margin="0,0,0,0">
                             <Image Source="{Binding AnotherAppToStartExeIcon}"
@@ -133,10 +133,11 @@
                     </DockPanel>
                     <DockPanel>
                         <Label Content="ALERT__SOUND__USED" />
-                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select sound...">
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Song1" />
-                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Song2" />
-                        </ComboBox>
+                        <ComboBox HorizontalContentAlignment="Left" PlaceholderText="Select sound..."
+                                  ItemsSource="{Binding AlertSounds}"
+                                  SelectedItem="{Binding AlertSoundSelection}"
+                                  DisplayMemberBinding="{Binding FileName}"
+                                  SelectedValueBinding="{Binding FilePath}" />
                     </DockPanel>
 
                     <!-- Loot logger -->

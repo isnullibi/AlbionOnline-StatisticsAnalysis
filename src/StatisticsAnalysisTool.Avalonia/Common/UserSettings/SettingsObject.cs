@@ -1,7 +1,5 @@
-using System;
 using StatisticsAnalysisTool.Avalonia.Gathering;
-//using StatisticsAnalysisTool.Avalonia.Models;
-using System.Collections.Generic;
+using System;
 using System.Globalization;
 
 namespace StatisticsAnalysisTool.Avalonia.Common.UserSettings;
@@ -12,12 +10,12 @@ public class SettingsObject
     public int RefreshRate { get; set; } = 10000;
     public int Server { get; set; } = 0; // 0: auto, 1: west, 2: east
     public string PacketFilter { get; set; } = "(host 5.45.187 or host 5.188.125) and udp port 5056";
-    public string MainTrackingCharacterName { get; set; }
+    public string? MainTrackingCharacterName { get; set; }
     public int BackupIntervalByDays { get; set; } = 7;
     public int MaximumNumberOfBackups { get; set; } = 5;
     public bool IsOpenItemWindowInNewWindowChecked { get; set; } = true;
     public bool IsInfoWindowShownOnStart { get; set; } = true;
-    public string SelectedAlertSound { get; set; }
+    public string? SelectedAlertSound { get; set; }
     public string AlbionDataProjectBaseUrlWest { get; set; } = "https://albion-online-data.com/api/v2/";
     public string AlbionDataProjectBaseUrlEast { get; set; } = "https://east.albion-online-data.com/api/v2/";
     public string AlbionOnlineApiBaseUrlWest { get; set; } = "https://gameinfo.albiononline.com";
@@ -86,6 +84,6 @@ public class SettingsObject
     public double PartyBuilderMaximumItemPower { get; set; } = 900;
     public double PartyBuilderMinimalBasicItemPower { get; set; } = 600;
     public double PartyBuilderMaximumBasicItemPower { get; set; } = 900;
-    public string AnotherAppToStartPath { get; set; }
+    public string? AnotherAppToStartPath { get; set; }
     public string MainGameFolderPath { get; set; } = string.Empty;
 }

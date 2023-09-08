@@ -26,7 +26,7 @@ internal static class DirectoryController
         }
     }
 
-    public static string[] GetFiles(string path, string searchPattern)
+    public static string[]? GetFiles(string path, string searchPattern)
     {
         try
         {

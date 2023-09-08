@@ -1,7 +1,7 @@
-﻿using System;
+﻿using StatisticsAnalysisTool.Avalonia.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Text.Json;
-using StatisticsAnalysisTool.Avalonia.Enumerations;
 
 namespace StatisticsAnalysisTool.Avalonia.Models;
 public class ConsoleFragment

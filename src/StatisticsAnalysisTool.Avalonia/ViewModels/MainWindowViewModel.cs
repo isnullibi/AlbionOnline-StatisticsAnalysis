@@ -1,7 +1,7 @@
-﻿using Avalonia.Controls.Notifications;
-using CommunityToolkit.Mvvm.ComponentModel;
-using StatisticsAnalysisTool.Avalonia;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using StatisticsAnalysisTool.Avalonia.Models.NetworkModel;
 using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace StatisticsAnalysisTool.Avalonia.ViewModels;
@@ -29,6 +29,9 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private int _partyMemberNumber = 0;
     [ObservableProperty] private double _toolTaskProgressBarValue = 0;
     [ObservableProperty] private string _errorText = string.Empty;
+    [ObservableProperty] private string _toolTaskCurrentTaskName = string.Empty;
+
+    [ObservableProperty] private ObservableCollection<PartyMemberCircle> _partyMemberCircles = new();
 
 
     #endregion

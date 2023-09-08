@@ -5,7 +5,6 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
-using System.Windows;
 
 namespace StatisticsAnalysisTool.Avalonia.Common.UserSettings;
 
@@ -31,7 +30,6 @@ public class SettingsController
     public static void SaveSettings()
     {
         SaveToLocalFile();
-        //ItemController.SaveFavoriteItemsToLocalFile();
     }
 
     public static void LoadSettings()

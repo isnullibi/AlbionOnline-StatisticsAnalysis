@@ -1,6 +1,6 @@
-using StatisticsAnalysisTool.Avalonia.ViewModels;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using StatisticsAnalysisTool.Avalonia.ViewModels;
 
 namespace StatisticsAnalysisTool.Avalonia.UserControls;
 

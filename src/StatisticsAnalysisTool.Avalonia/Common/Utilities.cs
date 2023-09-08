@@ -1,11 +1,9 @@
-﻿using Avalonia;
+﻿using Serilog;
 using Avalonia.Controls;
-using Avalonia.Platform;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 
 namespace StatisticsAnalysisTool.Avalonia.Common;
 public static class Utilities
@@ -65,5 +63,22 @@ public static class Utilities
         var currentDateTime = DateTime.UtcNow;
         var difference = currentDateTime.Subtract(dateTime);
         return difference.Seconds >= waitingSeconds;
+    }
+
+    public static void AnotherAppToStart(string? path)
+    {
+        // notify manager
+        if (string.IsNullOrEmpty(path)) return;
+
+        try
+        {
+            if (!File.Exists(path)) return;
+
+            Process.Start(path);
+        }
+        catch (Exception e)
+        {
+            Log.Error(e, "{message}", MethodBase.GetCurrentMethod()?.DeclaringType);
+        }
     }
 }

@@ -68,6 +68,8 @@ public partial class App : Application
 
         await _mainWindowViewModel.InitMainWindowDataAsync();
         desktop.MainWindow.Show();
+
+        Utilities.AnotherAppToStart(SettingsController.CurrentSettings.AnotherAppToStartPath);
     }
 
     private void OnExit(object? sender, ControlledApplicationLifetimeExitEventArgs e)

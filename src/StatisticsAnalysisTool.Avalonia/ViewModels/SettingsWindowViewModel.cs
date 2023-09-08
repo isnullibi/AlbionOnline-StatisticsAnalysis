@@ -1,21 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using StatisticsAnalysisTool.Avalonia.Models;
-using StatisticsAnalysisTool.Avalonia.Enumerations;
-using StatisticsAnalysisTool.Avalonia.Common;
-using StatisticsAnalysisTool.Avalonia.Utilities;
-using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
-using System;
-using System.IO;
-using System.Reflection;
-//using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avalonia.Controls;
 using Avalonia.Media.Imaging;
+using CommunityToolkit.Mvvm.ComponentModel;
+using StatisticsAnalysisTool.Avalonia.Common;
+using StatisticsAnalysisTool.Avalonia.Common.UserSettings;
+using StatisticsAnalysisTool.Avalonia.Enumerations;
+using StatisticsAnalysisTool.Avalonia.Models;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Avalonia.Controls;
-using Serilog;
+using System.IO;
+using System.Linq;
 
 namespace StatisticsAnalysisTool.Avalonia.ViewModels;
 public partial class SettingsWindowViewModel : ObservableObject
@@ -40,9 +34,11 @@ public partial class SettingsWindowViewModel : ObservableObject
     [ObservableProperty] private SettingDataInformation _backupIntervalByDaysSelection;
     [ObservableProperty] private SettingDataInformation _maximumNumberOfBackupsSelection;
     [ObservableProperty] private SettingDataInformation _serverSelection;
+    [ObservableProperty] private FileInformation? _alertSoundSelection;
     [ObservableProperty] private ObservableCollection<SettingDataInformation> _backupIntervalByDays = new();
     [ObservableProperty] private ObservableCollection<SettingDataInformation> _maximumNumberOfBackups = new();
     [ObservableProperty] private ObservableCollection<SettingDataInformation> _server = new();
+    [ObservableProperty] private ObservableCollection<FileInformation> _alertSounds = new();
 
     public static string ToolDirectory => AppDomain.CurrentDomain.BaseDirectory;
 
@@ -68,7 +64,10 @@ public partial class SettingsWindowViewModel : ObservableObject
         MaximumNumberOfBackupsSelection = MaximumNumberOfBackups.FirstOrDefault(x => x.Value == SettingsController.CurrentSettings.MaximumNumberOfBackups);
 
         // Another app to start path
-        AnotherAppToStartPath = SettingsController.CurrentSettings.AnotherAppToStartPath;
+        AnotherAppToStartPath = SettingsController.CurrentSettings.AnotherAppToStartPath ?? string.Empty;
+
+        // Alert sounds
+        InitAlertSounds();
 
         // Api urls
         AlbionDataProjectBaseUrlWest = SettingsController.CurrentSettings.AlbionDataProjectBaseUrlWest;
@@ -103,6 +102,7 @@ public partial class SettingsWindowViewModel : ObservableObject
 
         SettingsController.CurrentSettings.IsOpenItemWindowInNewWindowChecked = IsOpenItemWindowInNewWindowChecked;
         SettingsController.CurrentSettings.IsInfoWindowShownOnStart = ShowInfoWindowOnStartChecked;
+        SettingsController.CurrentSettings.SelectedAlertSound = AlertSoundSelection?.FileName ?? string.Empty;
 
         SettingsController.CurrentSettings.AlbionDataProjectBaseUrlWest = AlbionDataProjectBaseUrlWest;
         SettingsController.CurrentSettings.AlbionDataProjectBaseUrlEast = AlbionDataProjectBaseUrlEast;
@@ -164,7 +164,7 @@ public partial class SettingsWindowViewModel : ObservableObject
         AnotherAppToStartExeIcon = GetExeIcon(SettingsController.CurrentSettings.AnotherAppToStartPath);
     }
 
-    private static Bitmap? GetExeIcon(string path)
+    private static Bitmap? GetExeIcon(string? path)
     {
         try
         {
@@ -221,15 +221,15 @@ public partial class SettingsWindowViewModel : ObservableObject
 
     public static void OpenConsoleWindow()
     {
-        try
-        {
-            if (Utilities.)
-        }
-        catch (Exception e)
-        {
-            ConsoleManager.WriteLineForError(MethodBase.GetCurrentMethod()?.DeclaringType, e);
-            Log.Error(e, "{message}", MethodBase.GetCurrentMethod()?.DeclaringType);
-        }
+        //try
+        //{
+        //    if (Utilities.)
+        //}
+        //catch (Exception e)
+        //{
+        //    ConsoleManager.WriteLineForError(MethodBase.GetCurrentMethod()?.DeclaringType, e);
+        //    Log.Error(e, "{message}", MethodBase.GetCurrentMethod()?.DeclaringType);
+        //}
     }
 
     #region Inits
@@ -349,6 +349,18 @@ public partial class SettingsWindowViewModel : ObservableObject
         mainWindowViewModel.IsStorageHistoryTabVisible = SettingsController.CurrentSettings.IsStorageHistoryNaviTabActive;
         mainWindowViewModel.IsMapHistoryTabVisible = SettingsController.CurrentSettings.IsMapHistoryNaviTabActive;
         mainWindowViewModel.IsPlayerInformationTabVisible = SettingsController.CurrentSettings.IsPlayerInformationNaviTabActive;
+    }
+
+    private void InitAlertSounds()
+    {
+        AlertSounds.Clear();
+        SoundController.InitializeSoundFIlesFromDirectory();
+        foreach (var sound in SoundController.AlertSounds)
+        {
+            AlertSounds.Add(new FileInformation(sound.FileName, sound.FilePath));
+        }
+
+        AlertSoundSelection = AlertSounds.FirstOrDefault(x => x.FileName == SettingsController.CurrentSettings.SelectedAlertSound);
     }
 
     #endregion

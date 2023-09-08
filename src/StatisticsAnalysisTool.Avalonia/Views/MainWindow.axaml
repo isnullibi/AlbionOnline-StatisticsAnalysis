@@ -48,7 +48,7 @@
                         <Label Classes="title" VerticalAlignment="Center"
                                Content="AVALONIA STATISTICS ANALYSIS TOOL"/>
                         <Grid IsVisible="{Binding IsOsUnsupported, FallbackValue=False}"
-                              Height="20" Width="20" VerticalAlignment="Center" ToolTip.Tip="UNSUPPORTED_OS">
+                              Height="20" Width="20" VerticalAlignment="Center" ToolTip.Tip="UNSUPPORTED__OS">
                             <fa:Icon Value="fa-solid fa-triangle-exclamation" FontSize="17"
                                      Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" />
                         </Grid>
@@ -56,13 +56,15 @@
                                Content="- DEBUG -" Foreground="{StaticResource SolidColorBrush.Accent.Red.3}"
                                IsVisible="{Binding IsDebugMode}"/>
                         <Label Classes="trackingContent" VerticalAlignment="Center"
-                               Content="(SERVER_TYPE)" Foreground="{StaticResource SolidColorBrush.Accent.Blue.4}"
+                               Content="(SERVER__TYPE)" Foreground="{StaticResource SolidColorBrush.Accent.Blue.4}"
                                />
                         <Panel>
-                            <Label Classes="notActive" Content="TRACKING_IS_NOT_ACTIVE" VerticalAlignment="Center" IsVisible="True" />
-                            <Label Classes="partiallyActive" Content="TRACKING_IS_PARTIALLY_ACTIVE"
-                                   VerticalAlignment="Center" IsVisible="False" />
-                            <Label Classes="active" Content="TRACKING_IS_ACTIVE" VerticalAlignment="Center" IsVisible="False" />
+                            <Label Classes="notActive" Content="TRACKING__IS__NOT__ACTIVE"
+                                   VerticalContentAlignment="Center" IsVisible="True" />
+                            <Label Classes="partiallyActive" Content="TRACKING__IS__PARTIALLY__ACTIVE"
+                                   VerticalContentAlignment="Center" IsVisible="False" />
+                            <Label Classes="active" Content="TRACKING__IS__ACTIVE"
+                                   VerticalContentAlignment="Center" IsVisible="False" />
                         </Panel>
                         <Grid Classes="loadingIconGrid" IsVisible="True" VerticalAlignment="Center">
                             <fa:Icon Classes="loadingIcon" />
@@ -79,7 +81,7 @@
                                 <Label Classes="trackingContent" Content="USERNAME"/>
                                 <Grid IsVisible="True"
                                       Height="20" Width="20" Margin="5,4,0,3" VerticalAlignment="Center"
-                                      ToolTip.Tip="THIS_CHARACTER_IS_NOT_TRACKED">
+                                      ToolTip.Tip="THIS__CHARACTER__IS__NOT__TRACKED">
                                     <fa:Icon Value="fa-solid fa-triangle-exclamation"
                                              Foreground="{StaticResource SolidColorBrush.Accent.Yellow.1}"/>
                                 </Grid>
@@ -87,23 +89,24 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" IsVisible="True">
                                 <Label Classes="trackingTitle" Content="GUILD" />
-                                <Label Classes="trackingContent" Content="GUILD_NAME" />
+                                <Label Classes="trackingContent" Content="GUILD__NAME" />
                                 <Label Content=" | " VerticalContentAlignment="Center"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" IsVisible="True">
                                 <Label Classes="trackingTitle" Content="ALLIANCE" />
-                                <Label Classes="trackingContent" Content="ALLIANCE_NAME" />
+                                <Label Classes="trackingContent" Content="ALLIANCE__NAME" />
                                 <Label Content=" | " VerticalContentAlignment="Center"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" IsVisible="True">
-                                <Label Classes="trackingTitle" Content="CURRENT_MAP" />
+                                <Label Classes="trackingTitle" Content="CURRENT__MAP" />
                                 <!-- CONTENT CONTROL -->
                             </StackPanel>
                         </StackPanel>
                     </Grid>
                     <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Height="18">
                         <StackPanel Orientation="Horizontal">
-                            <Label Classes="trackingContent" Content="00:00:00" VerticalContentAlignment="Center" />
+                            <Label Classes="trackingContent" Content="00:00:00"
+                                   VerticalContentAlignment="Center" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -201,7 +204,7 @@
                     
                 </Grid>
             </TabItem>
-            <TabItem Header="ITEM_SEARCH" IsVisible="{Binding IsItemSearchTabVisible}">
+            <TabItem Header="ITEM__SEARCH" IsVisible="{Binding IsItemSearchTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
@@ -216,12 +219,12 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="DAMAGE_METER" IsVisible="{Binding IsDamageMeterTabVisible}">
+            <TabItem Header="DAMAGE__METER" IsVisible="{Binding IsDamageMeterTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="TRADE_MONITORING" IsVisible="{Binding IsTradeMonitoringTabVisible}">
+            <TabItem Header="TRADE__MONITORING" IsVisible="{Binding IsTradeMonitoringTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
@@ -231,22 +234,22 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="PARTY_BUILDER" IsVisible="{Binding IsPartyBuilderTabVisible}">
+            <TabItem Header="PARTY__BUILDER" IsVisible="{Binding IsPartyBuilderTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="STORAGE_HISTORY" IsVisible="{Binding IsStorageHistoryTabVisible}">
+            <TabItem Header="STORAGE__HISTORY" IsVisible="{Binding IsStorageHistoryTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="MAP_HISTORY" IsVisible="{Binding IsMapHistoryTabVisible}">
+            <TabItem Header="MAP__HISTORY" IsVisible="{Binding IsMapHistoryTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>
             </TabItem>
-            <TabItem Header="PLAYER_INFO" IsVisible="{Binding IsPlayerInformationTabVisible}">
+            <TabItem Header="PLAYER__INFO" IsVisible="{Binding IsPlayerInformationTabVisible}">
                 <Grid Classes="tabItemGrid">
 
                 </Grid>

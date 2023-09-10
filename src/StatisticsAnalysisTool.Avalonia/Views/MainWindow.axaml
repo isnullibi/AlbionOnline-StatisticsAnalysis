@@ -201,7 +201,7 @@
         <TabControl Classes="tabList">
             <TabItem Header="DASHBOARD" IsVisible="{Binding IsDashboardTabVisible}">
                 <Grid Classes="tabItemGrid">
-                    
+                    <userControls:DashboardControl />
                 </Grid>
             </TabItem>
             <TabItem Header="ITEM__SEARCH" IsVisible="{Binding IsItemSearchTabVisible}">
